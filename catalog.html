@@ -2,12 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+<<<<<<< HEAD
     <title>Katalog</title>
+=======
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+>>>>>>> ee1d98217e7875c34b061d009435f9855b08a728
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header id="header">
+<<<<<<< HEAD
         <!-- Гамбургер -->
         <div id="hamburger">☰</div>
     
@@ -87,5 +94,102 @@
 <script src="main.js"></script>
 <script src="cart.js"></script>
 
+=======
+        <nav id="navbar"> nav</nav>
+        <h1 id="Logga">Logga</h1>
+        <div id="cart">Varukorg</div>
+    </header>
+<main id="main-catalog">
+   
+
+    <div id="cards">
+        <div class="card-box" onclick="openModal('Kort1', 'img/product1.jpg', 'Namn', '199 kr')">
+            <h1 class="card-title">Kort1</h1>
+            <img src="img/product1.jpg" alt="">
+            <p class="card-text">Namn</p>
+            <p class="card-price">199 kr</p>
+        </div>
+
+        <div class="card-box" onclick="openModal('Kort2', 'img/product1.jpg', 'Namn', '199 kr')">
+            <h1 class="card-title">Kort2</h1>
+            <img src="img/product1.jpg" alt="">
+            <p class="card-text">Namn</p>
+            <p class="card-price">199 kr</p>
+        </div>
+
+        <div class="card-box" onclick="openModal('Kort3', 'img/product1.jpg', 'Namn', '199 kr')">
+            <h1 class="card-title">Kort3</h1>
+            <img src="img/product1.jpg" alt="">
+            <p class="card-text">Namn</p>
+            <p class="card-price">199 kr</p>
+        </div>
+
+        <div class="card-box" onclick="openModal('Kort4', 'img/product1.jpg', 'Namn', '199 kr')">
+            <h1 class="card-title">Kort4</h1>
+            <img src="img/product1.jpg" alt="">
+            <p class="card-text">Namn</p>
+            <p class="card-price">199 kr</p>
+        </div>
+
+        <div class="card-box" onclick="openModal('Kort5', 'img/product1.jpg', 'Namn', '199 kr')">
+            <h1 class="card-title">Kort5</h1>
+            <img src="img/product1.jpg" alt="">
+            <p class="card-text">Namn</p>
+            <p class="card-price">199 kr</p>
+        </div>
+
+        <div class="card-box" onclick="openModal('Kort6', 'img/product1.jpg', 'Namn', '199 kr')">
+            <h1 class="card-title">Kort6</h1>
+            <img src="img/product1.jpg" alt="">
+            <p class="card-text">Namn</p>
+            <p class="card-price">199 kr</p>
+        </div>
+
+        <div class="card-box" onclick="openModal('Kort7', 'img/product1.jpg', 'Namn', '199 kr')">
+            <h1 class="card-title">Kort7</h1>
+            <img src="img/product1.jpg" alt="">
+            <p class="card-text">Namn</p>
+            <p class="card-price">199 kr</p>
+        </div>
+
+        <div class="card-box" onclick="openModal('Kort8', 'img/product1.jpg', 'Namn', '199 kr')">
+            <h1 class="card-title">Kort8</h1>
+            <img src="img/product1.jpg" alt="">
+            <p class="card-text">Namn</p>
+            <p class="card-price">199 kr</p>
+        </div>
+        
+    </div>
+
+
+</main>
+<footer></footer>
+   
+<!-- Модалка -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">✖</span>
+
+        <h2 id="modal-title"></h2>
+        <img id="modal-img" src="" alt="">
+        <p id="modal-desc"></p>
+        <p id="modal-price"></p>
+    </div>
+</div>
+
+<!-- <div id="modal"> — тёмный фон, закрывает всю страницу
+
+    class="modal" — нужен для стилей (скрывать/показывать)
+    
+    <div class="modal-content"> — белое окно pop-up
+    
+    <span class="close">✖</span> — кнопка "закрыть"
+    
+    <h2>, <img>, <p> — это место, куда мы будем подставлять данные выбранной карточки
+    
+    Модалка всегда есть в HTML, но изначально скрыта. -->
+
+    <script src="main.js"></script>
+>>>>>>> ee1d98217e7875c34b061d009435f9855b08a728
 </body>
 </html>

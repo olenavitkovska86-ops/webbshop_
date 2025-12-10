@@ -41,10 +41,6 @@ const categories = [
     }
 ];
 
-
-
-// ===== РЕНДЕР КАТЕГОРИЙ =====
-
 function renderCategoryButtons() {
     const menu = document.getElementById("menu");
     menu.innerHTML = "";
@@ -52,9 +48,7 @@ function renderCategoryButtons() {
     menu.innerHTML += `<button onclick="renderAllCategories()">Alla</button>`;
 
     categories.forEach(cat => {
-        menu.innerHTML += `
-            <button onclick="renderCategory('${cat.name}')">${cat.name}</button>
-        `;
+        menu.innerHTML += `<button onclick="renderCategory('${cat.name}')">${cat.name}</button>`;
     });
 }
 
@@ -93,8 +87,6 @@ function cardHTML(product) {
     `;
 }
 
-// ===== МОДАЛКА ПРОДУКТА =====
-
 function openModal(title, img, desc, price) {
     document.getElementById("modal-title").textContent = title;
     document.getElementById("modal-img").src = img;
@@ -108,71 +100,13 @@ function closeModal() {
     document.getElementById("modal-product").style.display = "none";
 }
 
-// START
 renderCategoryButtons();
 renderAllCategories();
 
-
-// Переключение меню при клике на гамбургер
 document.getElementById("hamburger").addEventListener("click", () => {
     document.getElementById("menu").classList.toggle("hidden");
 });
 
-// Рендер кнопок категорий в меню
-function renderCategoryButtons() {
-    const menu = document.getElementById("menu");
-    menu.innerHTML = "";
-
-    menu.innerHTML += `<button onclick="renderAllCategories()">Alla</button>`;
-
-    categories.forEach(cat => {
-        menu.innerHTML += `
-            <button onclick="renderCategory('${cat.name}')">${cat.name}</button>
-        `;
-    });
-}
-
-// // ===== ГАМБУРГЕР МЕНЮ =====
-// document.addEventListener("DOMContentLoaded", () => {
-//     const hamburger = document.getElementById("hamburger");
-//     const menu = document.getElementById("menu");
-
-//     if (hamburger) {
-//         hamburger.addEventListener("click", () => {
-//             menu.classList.toggle("hidden");
-//         });
-//     }
-// });
-
-
-
-
-
-// Функция фильтрации по чекбоксам
-function applyFilters() {
-    const checked = [...document.querySelectorAll(".filter-checkbox:checked")]
-        .map(cb => cb.value);
-
-    const container = document.getElementById("cards");
-    container.innerHTML = "";
-
-    // Если ничего не выбрано → показать все
-    if (checked.length === 0) {
-        renderAllCategories();
-        return;
-    }
-
-    // Фильтруем товары
-    categories.forEach(category => {
-        if (checked.includes(category.name)) {
-            category.products.forEach(product => {
-                container.innerHTML += cardHTML(product);
-            });
-        }
-    });
-}
-
-// Навешиваем слушатели на чекбоксы
 document.querySelectorAll(".filter-checkbox").forEach(cb => {
     cb.addEventListener("change", applyFilters);
 });
