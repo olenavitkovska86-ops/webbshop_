@@ -43,7 +43,7 @@ const categories = [
 
 
 
-// ===== РЕНДЕР КАТЕГОРИЙ =====
+// ===== RENDER OF CATEGORIES =====
 
 function renderCategoryButtons() {
     const menu = document.getElementById("menu");
@@ -93,7 +93,7 @@ function cardHTML(product) {
     `;
 }
 
-// ===== МОДАЛКА ПРОДУКТА =====
+// ===== PRODUCT MODAL =====
 
 function openModal(title, img, desc, price) {
     document.getElementById("modal-title").textContent = title;
@@ -113,12 +113,12 @@ renderCategoryButtons();
 renderAllCategories();
 
 
-// Переключение меню при клике на гамбургер
+// Växla meny när du klickar på hamburgare
 document.getElementById("hamburger").addEventListener("click", () => {
     document.getElementById("menu").classList.toggle("hidden");
 });
 
-// Рендер кнопок категорий в меню
+// Rendera kategoriknappar i menyn
 function renderCategoryButtons() {
     const menu = document.getElementById("menu");
     menu.innerHTML = "";
@@ -132,7 +132,7 @@ function renderCategoryButtons() {
     });
 }
 
-// // ===== ГАМБУРГЕР МЕНЮ =====
+// // ===== HAMBURGER MENU =====
 // document.addEventListener("DOMContentLoaded", () => {
 //     const hamburger = document.getElementById("hamburger");
 //     const menu = document.getElementById("menu");
@@ -148,7 +148,7 @@ function renderCategoryButtons() {
 
 
 
-// Функция фильтрации по чекбоксам
+// Checkbox filtering function
 function applyFilters() {
     const checked = [...document.querySelectorAll(".filter-checkbox:checked")]
         .map(cb => cb.value);
@@ -156,13 +156,13 @@ function applyFilters() {
     const container = document.getElementById("cards");
     container.innerHTML = "";
 
-    // Если ничего не выбрано → показать все
+    // If nothing is selected → show all
     if (checked.length === 0) {
         renderAllCategories();
         return;
     }
 
-    // Фильтруем товары
+    // Filtering products
     categories.forEach(category => {
         if (checked.includes(category.name)) {
             category.products.forEach(product => {
@@ -172,7 +172,7 @@ function applyFilters() {
     });
 }
 
-// Навешиваем слушатели на чекбоксы
+// We hang listeners on checkboxes
 document.querySelectorAll(".filter-checkbox").forEach(cb => {
     cb.addEventListener("change", applyFilters);
 });

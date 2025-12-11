@@ -1,4 +1,4 @@
-/* === Общие стили === */
+/* === General styles === */
 
 * {
     box-sizing: border-box;
@@ -89,7 +89,7 @@ body {
     /* background-color: #f4e6d7; */
 }
 
-/* === Карточка товара === */
+/* === Product card === */
 
 .card-box {
     background: #fff;
@@ -118,10 +118,10 @@ body {
     margin-bottom: 10px;
 }
 
-/* === Модалки (общие стили) === */
+/* === Modal (general styles) === */
 
 .modal {
-    display: none; /* скрыто по умолчанию */
+    display: none; /* hidden by default */
     position: fixed;
     top: 0;
     left: 0;
@@ -222,20 +222,20 @@ footer {
 }
 
 
-/* Общий контейнер каталога */
+/* Shared directory container */
 #catalog {
     display: flex;
     gap: 20px;
     padding: 20px;
 }
 
-/* Левая колонка — фильтры */
+/* Left column - filters */
 #filters {
     width: 200px;
     flex-shrink: 0;
 }
 
-/* Карточки — растягиваются на всё оставшееся пространство */
+/* Cards - stretch to fill the remaining space*/
 #cards {
     flex-grow: 1;
     display: grid;
