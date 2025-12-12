@@ -1,3 +1,4 @@
+
 // === cart ===
 const openButton = document.querySelector("#open-btn");
 const shopCart = document.querySelector(".cart");
@@ -183,6 +184,6 @@ function applyFilters() {
 }
 
 // We hang listeners on checkboxes
-document.querySelectorAll(".filter-checkbox").forEach(cb => {
-  cb.addEventListener("change", applyFilters);
-});
+// document.querySelectorAll(".filter-checkbox").forEach(cb => {
+//   cb.addEventListener("change", applyFilters);
+// });
