@@ -13,29 +13,29 @@ const categories = [
     {
         name: "Halsband",
         products: [
-            new Product(1, "img/p1.jpg", "Guld Halsband", "199 kr", "Info", "Halsband"),
-            new Product(2, "img/p2.jpg", "Silver Halsband", "249 kr", "Info", "Halsband")
+            new Product(1, "img/p1.png", "Guld Halsband", "199 kr", "Info", "Halsband"),
+            new Product(2, "img/p2.png", "Silver Halsband", "249 kr", "Info", "Halsband")
         ]
     },
     {
         name: "Armband",
         products: [
-            new Product(3, "img/p3.jpg", "Guld Armband", "149 kr", "Info", "Armband"),
-            new Product(4, "img/p4.jpg", "Silver Armband", "179 kr", "Info", "Armband")
+            new Product(3, "img/p3.png", "Guld Armband", "149 kr", "Info", "Armband"),
+            new Product(4, "img/p4.png", "Silver Armband", "179 kr", "Info", "Armband")
         ]
     },
     {
         name: "Ringar",
         products: [
-            new Product(5, "img/r1.png", "Ring Elegant", "299 kr", "Info", "Ringar"),
-            new Product(6, "img/p6.jpg", "Ring Minimalistisk", "199 kr", "Info", "Ringar")
+            new Product(5, "img/p5.png", "Ring Elegant", "299 kr", "Info", "Ringar"),
+            new Product(6, "img/p6.png", "Ring Minimalistisk", "199 kr", "Info", "Ringar")
         ]
     },
     {
         name: "Örhängen",
         products: [
-            new Product(7, "img/o1.png", "Guldiga hjärtor Örhängen", "249 kr", "Info", "Örhängen"),
-            new Product(8, "img/p8.jpg", "Guld Örhängen", "299 kr", "Info", "Örhängen")
+            new Product(7, "img/p7.png", "Guldiga hjärtor Örhängen", "249 kr", "Info", "Örhängen"),
+            new Product(8, "img/p8.png", "Guld Örhängen", "299 kr", "Info", "Örhängen")
         ]
     }
 ];
