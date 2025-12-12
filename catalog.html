@@ -15,8 +15,21 @@
         <h1 onclick="location.href='index.html'" style="cursor:pointer;">Logga</h1>
     
         <!-- Cart -->
-        <div id="cart" onclick="openCart()">Varukorg</div>
+    <button id="open-btn">Varukorg</button>
+
+    <div class="cart">
+      <button class="close-btn">✕</button>
+      <h2>Din varukorg</h2>
+      <div id="cart-items"></div>
+    
+      <div class="total-row">
+        <span>Att betala</span>
+        <button class="total">Pris totalt</button>
+      </div>
+    </div>
     </header>
+
+
     
     <!-- Hamburger menu -->
     <div id="menu" class="menu hidden"></div>
@@ -83,9 +96,7 @@
 
 
 <!-- JS -->
-<script src="data.js"></script>
 <script src="main.js"></script>
-<script src="cart.js"></script>
 
 </body>
 </html>
