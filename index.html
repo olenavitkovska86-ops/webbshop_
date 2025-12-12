@@ -1,36 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Home</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <!-- Hamburger -->
+      <div id="hamburger">☰</div>
 
-    <header id="header">
-        <!-- Hamburger -->
-        <div id="hamburger">☰</div>
-    
-        <!-- Loggo -->
-        <h1 onclick="location.href='index.html'" style="cursor:pointer;">Logga</h1>
-    
-        <!-- Cart -->
-        <div id="cart" onclick="openCart()">Varukorg</div>
+      <!-- Loggo -->
+      <h1 onclick="location.href='index.html'" style="cursor: pointer">
+        Logga
+      </h1>
+
+      <!-- Cart -->
+
+      <button id="open-btn">Varukorg</button>
+
+      <div class="cart">
+        <button class="close-btn">✕</button>
+        <h2>Din varukorg</h2>
+
+        <!--Här kommer varorna läggas in med JavaScript-->
+        <div id="cart-items"></div>
+
+        <div class="total-row">
+          <span>Att betala</span>
+          <button class="total">Pris totalt</button>
+        </div>
+      </div>
     </header>
 
-<section id="home">
-    <img src="img/p0.jpg">
-    <p class="text">Välkommen!</p>
+    <section id="home">
+      <img src="img/p0.jpg" />
+      <p class="text">Välkommen!</p>
 
-    <div class="products">
+      <div class="products">
         <a href="catalog.html" class="product">1</a>
         <a href="catalog.html" class="product">2</a>
         <a href="catalog.html" class="product">3</a>
         <a href="catalog.html" class="product">4</a>
-    </div>
-</section>
+      </div>
+    </section>
 
-<footer class="text">&copy;AB 2025</footer>
-
-</body>
+    <footer class="text">&copy;AB 2025</footer>
+    <script src="main.js"></script>
+  </body>
 </html>
