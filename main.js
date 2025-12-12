@@ -1,15 +1,33 @@
+// === cart ===
+const openButton = document.querySelector("#open-btn");
+const shopCart = document.querySelector(".cart");
+const closeBtn = document.querySelector(".close-btn");
+
+// === on click open shoppincart ===
+openButton.addEventListener("click", () => {
+  shopCart.classList.toggle("active");
+  openButton.classList.add("hidden");
+});
+
+// === on click hide shoppingcart ===
+closeBtn.addEventListener("click", () => {
+  shopCart.classList.remove("active");
+  openButton.classList.remove("hidden");
+});
+
 class Product {
-    constructor(id, img, name, price, desc, category) {
-        this.id = id;
-        this.img = img;
-        this.name = name;
-        this.price = price;
-        this.desc = desc;
-        this.category = category;
-    }
+  constructor(id, img, name, price, desc, category) {
+    this.id = id;
+    this.img = img;
+    this.name = name;
+    this.price = price;
+    this.desc = desc;
+    this.category = category;
+  }
 }
 
 const categories = [
+
     {
         name: "Halsband",
         products: [
@@ -38,49 +56,48 @@ const categories = [
             new Product(8, "img/p8.png", "Guld Örhängen", "299 kr", "Info", "Örhängen")
         ]
     }
+
 ];
-
-
 
 // ===== RENDER OF CATEGORIES =====
 
 function renderCategoryButtons() {
-    const menu = document.getElementById("menu");
-    menu.innerHTML = "";
+  const menu = document.getElementById("menu");
+  menu.innerHTML = "";
 
-    menu.innerHTML += `<button onclick="renderAllCategories()">Alla</button>`;
+  menu.innerHTML += `<button onclick="renderAllCategories()">Alla</button>`;
 
-    categories.forEach(cat => {
-        menu.innerHTML += `
+  categories.forEach(cat => {
+    menu.innerHTML += `
             <button onclick="renderCategory('${cat.name}')">${cat.name}</button>
         `;
-    });
+  });
 }
 
 function renderAllCategories() {
-    const container = document.getElementById("cards");
-    container.innerHTML = "";
+  const container = document.getElementById("cards");
+  container.innerHTML = "";
 
-    categories.forEach(category => {
-        category.products.forEach(product => {
-            container.innerHTML += cardHTML(product);
-        });
+  categories.forEach(category => {
+    category.products.forEach(product => {
+      container.innerHTML += cardHTML(product);
     });
+  });
 }
 
 function renderCategory(name) {
-    const container = document.getElementById("cards");
-    container.innerHTML = "";
+  const container = document.getElementById("cards");
+  container.innerHTML = "";
 
-    const category = categories.find(c => c.name === name);
+  const category = categories.find(c => c.name === name);
 
-    category.products.forEach(product => {
-        container.innerHTML += cardHTML(product);
-    });
+  category.products.forEach(product => {
+    container.innerHTML += cardHTML(product);
+  });
 }
 
 function cardHTML(product) {
-    return `
+  return `
         <div class="card-box" onclick="
             openModal('${product.img}', '${product.desc}', '${product.price}')
         ">
@@ -93,41 +110,39 @@ function cardHTML(product) {
 
 // ===== PRODUCT MODAL =====
 
-function openModal( img, desc, price) {
-    
-    document.getElementById("modal-img").src = img;
-    document.getElementById("modal-desc").textContent = desc;
-    document.getElementById("modal-price").textContent = price;
+function openModal(img, desc, price) {
+  document.getElementById("modal-img").src = img;
+  document.getElementById("modal-desc").textContent = desc;
+  document.getElementById("modal-price").textContent = price;
 
-    document.getElementById("modal-product").style.display = "flex";
+  document.getElementById("modal-product").style.display = "flex";
 }
 
 function closeModal() {
-    document.getElementById("modal-product").style.display = "none";
+  document.getElementById("modal-product").style.display = "none";
 }
 
 // START
 renderCategoryButtons();
 renderAllCategories();
 
-
 // Växla meny när du klickar på hamburgare
 document.getElementById("hamburger").addEventListener("click", () => {
-    document.getElementById("menu").classList.toggle("hidden");
+  document.getElementById("menu").classList.toggle("hidden");
 });
 
 // Rendera kategoriknappar i menyn
 function renderCategoryButtons() {
-    const menu = document.getElementById("menu");
-    menu.innerHTML = "";
+  const menu = document.getElementById("menu");
+  menu.innerHTML = "";
 
-    menu.innerHTML += `<button onclick="renderAllCategories()">Alla</button>`;
+  menu.innerHTML += `<button onclick="renderAllCategories()">Alla</button>`;
 
-    categories.forEach(cat => {
-        menu.innerHTML += `
+  categories.forEach(cat => {
+    menu.innerHTML += `
             <button onclick="renderCategory('${cat.name}')">${cat.name}</button>
         `;
-    });
+  });
 }
 
 // // ===== HAMBURGER MENU =====
@@ -142,37 +157,32 @@ function renderCategoryButtons() {
 //     }
 // });
 
-
-
-
-
 // Checkbox filtering function
 function applyFilters() {
-    const checked = [...document.querySelectorAll(".filter-checkbox:checked")]
-        .map(cb => cb.value);
+  const checked = [
+    ...document.querySelectorAll(".filter-checkbox:checked"),
+  ].map(cb => cb.value);
 
-    const container = document.getElementById("cards");
-    container.innerHTML = "";
+  const container = document.getElementById("cards");
+  container.innerHTML = "";
 
-    // If nothing is selected → show all
-    if (checked.length === 0) {
-        renderAllCategories();
-        return;
+  // If nothing is selected → show all
+  if (checked.length === 0) {
+    renderAllCategories();
+    return;
+  }
+
+  // Filtering products
+  categories.forEach(category => {
+    if (checked.includes(category.name)) {
+      category.products.forEach(product => {
+        container.innerHTML += cardHTML(product);
+      });
     }
-
-    // Filtering products
-    categories.forEach(category => {
-        if (checked.includes(category.name)) {
-            category.products.forEach(product => {
-                container.innerHTML += cardHTML(product);
-            });
-        }
-    });
+  });
 }
 
 // We hang listeners on checkboxes
 document.querySelectorAll(".filter-checkbox").forEach(cb => {
-    cb.addEventListener("change", applyFilters);
+  cb.addEventListener("change", applyFilters);
 });
-
-
