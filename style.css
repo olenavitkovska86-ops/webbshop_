@@ -155,7 +155,7 @@ body {
     cursor: pointer;
 }
 
-/* Анимация */
+/* Animation */
 @keyframes popup {
     from { transform: scale(0.5); opacity: 0; }
     to { transform: scale(1); opacity: 1; }
@@ -213,6 +213,7 @@ footer {
 #filters {
     width: 200px;
     padding: 10px;
+    border: 2px solid black;
 }
 
 #filters label {
@@ -251,5 +252,8 @@ footer {
     top: 20px;
     height: fit-content;
 }
+
+
+
 
 

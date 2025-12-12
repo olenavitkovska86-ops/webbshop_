@@ -1,7 +1,6 @@
 class Product {
-    constructor(id, title, img, name, price, desc, category) {
+    constructor(id, img, name, price, desc, category) {
         this.id = id;
-        this.title = title;
         this.img = img;
         this.name = name;
         this.price = price;
@@ -14,29 +13,29 @@ const categories = [
     {
         name: "Halsband",
         products: [
-            new Product(1, "Kort1", "img/p1.jpg", "Guld Halsband", "199 kr", "Info", "Halsband"),
-            new Product(2, "Kort2", "img/p2.jpg", "Silver Halsband", "249 kr", "Info", "Halsband")
+            new Product(1, "img/p1.jpg", "Guld Halsband", "199 kr", "Info", "Halsband"),
+            new Product(2, "img/p2.jpg", "Silver Halsband", "249 kr", "Info", "Halsband")
         ]
     },
     {
         name: "Armband",
         products: [
-            new Product(3, "Kort3", "img/p3.jpg", "Guld Armband", "149 kr", "Info", "Armband"),
-            new Product(4, "Kort4", "img/p4.jpg", "Silver Armband", "179 kr", "Info", "Armband")
+            new Product(3, "img/p3.jpg", "Guld Armband", "149 kr", "Info", "Armband"),
+            new Product(4, "img/p4.jpg", "Silver Armband", "179 kr", "Info", "Armband")
         ]
     },
     {
         name: "Ringar",
         products: [
-            new Product(5, "Kort5", "img/r1.png", "Ring Elegant", "299 kr", "Info", "Ringar"),
-            new Product(6, "Kort6", "img/p6.jpg", "Ring Minimalistisk", "199 kr", "Info", "Ringar")
+            new Product(5, "img/r1.png", "Ring Elegant", "299 kr", "Info", "Ringar"),
+            new Product(6, "img/p6.jpg", "Ring Minimalistisk", "199 kr", "Info", "Ringar")
         ]
     },
     {
         name: "Örhängen",
         products: [
-            new Product(7, "Kort7", "img/o1.png", "Guldiga hjärtor Örhängen", "249 kr", "Info", "Örhängen"),
-            new Product(8, "Kort8", "img/p8.jpg", "Guld Örhängen", "299 kr", "Info", "Örhängen")
+            new Product(7, "img/o1.png", "Guldiga hjärtor Örhängen", "249 kr", "Info", "Örhängen"),
+            new Product(8, "img/p8.jpg", "Guld Örhängen", "299 kr", "Info", "Örhängen")
         ]
     }
 ];
@@ -83,9 +82,8 @@ function renderCategory(name) {
 function cardHTML(product) {
     return `
         <div class="card-box" onclick="
-            openModal('${product.title}', '${product.img}', '${product.desc}', '${product.price}')
+            openModal('${product.img}', '${product.desc}', '${product.price}')
         ">
-            <h1>${product.title}</h1>
             <img src="${product.img}">
             <p>${product.name}</p>
             <p>${product.price}</p>
@@ -95,8 +93,8 @@ function cardHTML(product) {
 
 // ===== PRODUCT MODAL =====
 
-function openModal(title, img, desc, price) {
-    document.getElementById("modal-title").textContent = title;
+function openModal( img, desc, price) {
+    
     document.getElementById("modal-img").src = img;
     document.getElementById("modal-desc").textContent = desc;
     document.getElementById("modal-price").textContent = price;
@@ -176,3 +174,5 @@ function applyFilters() {
 document.querySelectorAll(".filter-checkbox").forEach(cb => {
     cb.addEventListener("change", applyFilters);
 });
+
+
