@@ -1,8 +1,31 @@
+// Variables for ham-meny
+const hamBtn = document.querySelector(".ham-btn")
+const productMenu = document.querySelector(".product-menu")
+
+// Activate productmenu
+hamBtn.addEventListener("click", () => {
+    productMenu.classList.toggle("active")
+    hamBtn.classList.add("hidden")
+})
+
+//Close-button for both ham-meny and shoppingcart.
+const closeBtn = document.querySelectorAll(".close-btn");
+
+closeBtn.forEach(btn => {
+  btn.addEventListener("click", () => {
+    productMenu.classList.remove("active");
+    hamBtn.classList.remove("hidden");
+
+    shopCart.classList.remove("active");
+    openButton.classList.remove("hidden");
+  });
+});
+
 
 // === cart ===
 const openButton = document.querySelector("#open-btn");
 const shopCart = document.querySelector(".cart");
-const closeBtn = document.querySelector(".close-btn");
+
 
 // === on click open shoppincart ===
 openButton.addEventListener("click", () => {
@@ -10,11 +33,6 @@ openButton.addEventListener("click", () => {
   openButton.classList.add("hidden");
 });
 
-// === on click hide shoppingcart ===
-closeBtn.addEventListener("click", () => {
-  shopCart.classList.remove("active");
-  openButton.classList.remove("hidden");
-});
 
 class Product {
   constructor(id, img, name, price, desc, category) {
