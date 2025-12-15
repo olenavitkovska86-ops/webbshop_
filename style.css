@@ -7,7 +7,7 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   background: #fafafa;
 }
 
@@ -30,6 +30,75 @@ header h1 {
   display: flex;
   justify-content: space-between;
 }
+
+nav {
+    padding: 0.5rem;
+    display: inline-block;
+}
+
+.ham-btn {
+    height: 50px;
+    width: 50px;
+    margin-left: auto;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column; /* stapla strecken */
+    justify-content: space-around; /* fördela mellanrum */
+    align-items: center;
+
+}
+.ham-btn.hidden {
+     visibility: hidden; 
+}
+
+.ham-btn span {
+    height: 5px;
+    width: 100%;
+    background-color: black;
+    border-radius: 25px;
+    transition: .3s ease;
+}
+
+.product-menu {
+    background-color: #D8C5AE;
+    height: 100vh;
+    width: 100%;
+    max-width: 450px;
+    padding: 1rem;
+    position: fixed;
+    top: 0;
+    left: -450px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 2rem;
+    transition: .3s ease;  /* Gör att sidan skjuts in från vänster*/
+    /* z-index: 9999; */
+}
+
+.product-menu.active {
+    left: 0;
+}
+.product-menu p {
+    margin-bottom: 0;
+}
+.product-menu ul {
+    list-style: none; 
+}
+
+.product-menu a {
+    text-decoration: none;
+    color: inherit; /* valfritt: gör så att länkarna använder samma färg som texten */
+}
+.product-menu a:hover {
+    color: #C58F7B;
+}
+.product-menu li {
+    margin: 1rem 0; /*1rem margin upp och ner, 0 till höger och vänster.*/
+}
+
+
 
 #open-btn {
   height: 50px;
