@@ -80,19 +80,6 @@ const categories = [
 
 // ===== RENDER OF CATEGORIES =====
 
-function renderCategoryButtons() {
-  const menu = document.getElementById("menu");
-  menu.innerHTML = "";
-
-  menu.innerHTML += `<button onclick="renderAllCategories()">Alla</button>`;
-
-  categories.forEach(cat => {
-    menu.innerHTML += `
-            <button onclick="renderCategory('${cat.name}')">${cat.name}</button>
-        `;
-  });
-}
-
 function renderAllCategories() {
   const container = document.getElementById("cards");
   container.innerHTML = "";
@@ -109,6 +96,7 @@ function renderCategory(name) {
   container.innerHTML = "";
 
   const category = categories.find(c => c.name === name);
+  if (!category) return;
 
   category.products.forEach(product => {
     container.innerHTML += cardHTML(product);
@@ -141,67 +129,38 @@ function closeModal() {
   document.getElementById("modal-product").style.display = "none";
 }
 
-// START
-renderCategoryButtons();
-renderAllCategories();
 
-// Växla meny när du klickar på hamburgare
-document.getElementById("hamburger").addEventListener("click", () => {
-  document.getElementById("menu").classList.toggle("hidden");
-});
 
-// Rendera kategoriknappar i menyn
-function renderCategoryButtons() {
-  const menu = document.getElementById("menu");
-  menu.innerHTML = "";
 
-  menu.innerHTML += `<button onclick="renderAllCategories()">Alla</button>`;
+// On page load: shows all products or filters by selected category
+function initCatalog() {
 
-  categories.forEach(cat => {
-    menu.innerHTML += `
-            <button onclick="renderCategory('${cat.name}')">${cat.name}</button>
-        `;
-  });
-}
+  // Find the container where product cards are rendered
+  const cards = document.getElementById("cards");
 
-// // ===== HAMBURGER MENU =====
-// document.addEventListener("DOMContentLoaded", () => {
-//     const hamburger = document.getElementById("hamburger");
-//     const menu = document.getElementById("menu");
+  // If the container does not exist, we are not on the catalog page
+  // Exit the function to avoid errors on other pages
+  if (!cards) return;
 
-//     if (hamburger) {
-//         hamburger.addEventListener("click", () => {
-//             menu.classList.toggle("hidden");
-//         });
-//     }
-// });
+  // Read query parameters from the current URL
+  // Example: catalog.html?category=Ringar
+  const params = new URLSearchParams(location.search);
 
-// Checkbox filtering function
-function applyFilters() {
-  const checked = [
-    ...document.querySelectorAll(".filter-checkbox:checked"),
-  ].map(cb => cb.value);
+  // Get the value of the "category" parameter from the URL
+  // Will be null if no category is specified
+  const category = params.get("category");
 
-  const container = document.getElementById("cards");
-  container.innerHTML = "";
+  // If a category exists in the URL,
+  // render only products from that category
+  if (category) {
+    renderCategory(category);
 
-  // If nothing is selected → show all
-  if (checked.length === 0) {
+  // Otherwise, render all products in the catalog
+  } else {
     renderAllCategories();
-    return;
   }
-
-  // Filtering products
-  categories.forEach(category => {
-    if (checked.includes(category.name)) {
-      category.products.forEach(product => {
-        container.innerHTML += cardHTML(product);
-      });
-    }
-  });
 }
 
-// We hang listeners on checkboxes
-// document.querySelectorAll(".filter-checkbox").forEach(cb => {
-//   cb.addEventListener("change", applyFilters);
-// });
+// Run catalog initialization when the page loads
+initCatalog();
+
