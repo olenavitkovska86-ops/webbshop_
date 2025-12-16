@@ -1,17 +1,17 @@
 // Variables for ham-meny
-const hamBtn = document.querySelector(".ham-btn")
-const productMenu = document.querySelector(".product-menu")
+const hamBtn = document.querySelector(".ham-btn");
+const productMenu = document.querySelector(".product-menu");
 
 // Activate productmenu
 hamBtn.addEventListener("click", () => {
-    productMenu.classList.toggle("active")
-    hamBtn.classList.add("hidden")
-})
+  productMenu.classList.toggle("active");
+  hamBtn.classList.add("hidden");
+});
 
-//Close-button for both ham-meny and shoppingcart.
-const closeBtn = document.querySelectorAll(".close-btn");
+//Close-button
+const closeMenu = document.querySelectorAll(".close-menu");
 
-closeBtn.forEach(btn => {
+closeMenu.forEach(btn => {
   btn.addEventListener("click", () => {
     productMenu.classList.remove("active");
     hamBtn.classList.remove("hidden");
@@ -20,19 +20,6 @@ closeBtn.forEach(btn => {
     openButton.classList.remove("hidden");
   });
 });
-
-
-// === cart ===
-const openButton = document.querySelector("#open-btn");
-const shopCart = document.querySelector(".cart");
-
-
-// === on click open shoppincart ===
-openButton.addEventListener("click", () => {
-  shopCart.classList.toggle("active");
-  openButton.classList.add("hidden");
-});
-
 
 class Product {
   constructor(id, img, name, price, desc, category) {
@@ -46,36 +33,76 @@ class Product {
 }
 
 const categories = [
-
-    {
-        name: "Halsband",
-        products: [
-            new Product(1, "img/p1.png", "Guld Halsband", "199 kr", "Info", "Halsband"),
-            new Product(2, "img/p2.png", "Silver Halsband", "249 kr", "Info", "Halsband")
-        ]
-    },
-    {
-        name: "Armband",
-        products: [
-            new Product(3, "img/p3.png", "Guld Armband", "149 kr", "Info", "Armband"),
-            new Product(4, "img/p4.png", "Silver Armband", "179 kr", "Info", "Armband")
-        ]
-    },
-    {
-        name: "Ringar",
-        products: [
-            new Product(5, "img/p5.png", "Ring Elegant", "299 kr", "Info", "Ringar"),
-            new Product(6, "img/p6.png", "Ring Minimalistisk", "199 kr", "Info", "Ringar")
-        ]
-    },
-    {
-        name: "Örhängen",
-        products: [
-            new Product(7, "img/p7.png", "Guldiga hjärtor Örhängen", "249 kr", "Info", "Örhängen"),
-            new Product(8, "img/p8.png", "Guld Örhängen", "299 kr", "Info", "Örhängen")
-        ]
-    }
-
+  {
+    name: "Halsband",
+    products: [
+      new Product(
+        1,
+        "img/p1.png",
+        "Guld Halsband",
+        "199 kr",
+        "Info",
+        "Halsband"
+      ),
+      new Product(
+        2,
+        "img/p2.png",
+        "Silver Halsband",
+        "249 kr",
+        "Info",
+        "Halsband"
+      ),
+    ],
+  },
+  {
+    name: "Armband",
+    products: [
+      new Product(3, "img/p3.png", "Guld Armband", "149 kr", "Info", "Armband"),
+      new Product(
+        4,
+        "img/p4.png",
+        "Silver Armband",
+        "179 kr",
+        "Info",
+        "Armband"
+      ),
+    ],
+  },
+  {
+    name: "Ringar",
+    products: [
+      new Product(5, "img/p5.png", "Ring Elegant", "299 kr", "Info", "Ringar"),
+      new Product(
+        6,
+        "img/p6.png",
+        "Ring Minimalistisk",
+        "199 kr",
+        "Info",
+        "Ringar"
+      ),
+    ],
+  },
+  {
+    name: "Örhängen",
+    products: [
+      new Product(
+        7,
+        "img/p7.png",
+        "Guldiga hjärtor Örhängen",
+        "249 kr",
+        "Info",
+        "Örhängen"
+      ),
+      new Product(
+        8,
+        "img/p8.png",
+        "Guld Örhängen",
+        "299 kr",
+        "Info",
+        "Örhängen"
+      ),
+    ],
+  },
 ];
 
 // ===== RENDER OF CATEGORIES =====
@@ -103,10 +130,12 @@ function renderCategory(name) {
   });
 }
 
+let selectedProduct = null;
+
 function cardHTML(product) {
   return `
         <div class="card-box" onclick="
-            openModal('${product.img}', '${product.desc}', '${product.price}')
+            openModal('${product.img}', '${product.desc}', '${product.price}', categories.flatMap(c => c.products).find(p => p.id === ${product.id}))
         ">
             <img src="${product.img}">
             <p>${product.name}</p>
@@ -115,13 +144,21 @@ function cardHTML(product) {
     `;
 }
 
+function addProductFromModal() {
+  if (selectedProduct) {
+    addToCart(selectedProduct);
+    closeModal();
+  }
+}
+
 // ===== PRODUCT MODAL =====
 
-function openModal(img, desc, price) {
+function openModal(img, desc, price, product) {
+  selectedProduct = product; // spara produktobjektet
+
   document.getElementById("modal-img").src = img;
   document.getElementById("modal-desc").textContent = desc;
   document.getElementById("modal-price").textContent = price;
-
   document.getElementById("modal-product").style.display = "flex";
 }
 
@@ -129,12 +166,8 @@ function closeModal() {
   document.getElementById("modal-product").style.display = "none";
 }
 
-
-
-
 // On page load: shows all products or filters by selected category
 function initCatalog() {
-
   // Find the container where product cards are rendered
   const cards = document.getElementById("cards");
 
@@ -155,7 +188,7 @@ function initCatalog() {
   if (category) {
     renderCategory(category);
 
-  // Otherwise, render all products in the catalog
+    // Otherwise, render all products in the catalog
   } else {
     renderAllCategories();
   }
@@ -164,3 +197,70 @@ function initCatalog() {
 // Run catalog initialization when the page loads
 initCatalog();
 
+// ==== cart ====
+// ==== Hämta alla html taggar vi behöver====
+
+const openButton = document.querySelector("#open-btn");
+const shopCart = document.querySelector(".cart");
+const closeBtn = document.querySelector(".close-btn");
+const itemList = document.querySelector("#cart-items");
+
+function updateCartCount() {
+  const totalCount = Array.from(itemList.children).reduce(
+    (sum, li) => sum + parseInt(li.querySelector(".count").textContent),
+    0
+  );
+  document.getElementById("cart-count").textContent = `(${totalCount})`;
+}
+
+function addToCart(product) {
+  let existingItem = Array.from(itemList.children).find(
+    li => li.dataset.id === product.id.toString()
+  );
+
+  if (existingItem) {
+    const countSpan = existingItem.querySelector(".count");
+    countSpan.textContent = parseInt(countSpan.textContent) + 1;
+    updateCartCount();
+    return;
+  }
+
+  const li = document.createElement("li");
+  li.dataset.id = product.id;
+  li.innerHTML = `
+    <span>${product.name} </span>
+    <button class="minus">-</button>
+    <span class="count">1</span>
+    <button class="plus">+</button>
+  `;
+
+  const countSpan = li.querySelector(".count");
+
+  li.querySelector(".minus").addEventListener("click", () => {
+    countSpan.textContent = parseInt(countSpan.textContent) - 1;
+    if (parseInt(countSpan.textContent) <= 0) li.remove();
+    updateCartCount();
+  });
+
+  li.querySelector(".plus").addEventListener("click", () => {
+    countSpan.textContent = parseInt(countSpan.textContent) + 1;
+    updateCartCount();
+  });
+
+  itemList.appendChild(li);
+  updateCartCount();
+}
+
+// ==== on click open shoppingcart ====
+if (openButton && shopCart) {
+  openButton.addEventListener("click", () => {
+    shopCart.classList.toggle("active");
+  });
+}
+
+// ==== on click hide shoppingcart ====
+if (closeBtn && openButton && shopCart) {
+  closeBtn.addEventListener("click", () => {
+    shopCart.classList.remove("active");
+  });
+}
