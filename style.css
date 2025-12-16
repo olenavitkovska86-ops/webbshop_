@@ -7,7 +7,7 @@
 }
 
 body {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   background: #fafafa;
 }
 
@@ -32,111 +32,113 @@ header h1 {
 }
 
 nav {
-    padding: 0.5rem;
-    display: inline-block;
+  padding: 0.5rem;
+  display: inline-block;
 }
 
 .ham-btn {
-    height: 50px;
-    width: 50px;
-    margin-left: auto;
-    position: relative;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column; /* stapla strecken */
-    justify-content: space-around; /* fördela mellanrum */
-    align-items: center;
-
-}
-.ham-btn.hidden {
-     visibility: hidden; 
-}
-
-.ham-btn span {
-    height: 5px;
-    width: 100%;
-    background-color: black;
-    border-radius: 25px;
-    transition: .3s ease;
-}
-
-.product-menu {
-    background-color: #D8C5AE;
-    height: 100vh;
-    width: 100%;
-    max-width: 450px;
-    padding: 1rem;
-    position: fixed;
-    top: 0;
-    left: -450px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    font-size: 2rem;
-    transition: .3s ease;  /* Gör att sidan skjuts in från vänster*/
-    /* z-index: 9999; */
-}
-
-.product-menu.active {
-    left: 0;
-}
-.product-menu p {
-    margin-bottom: 0;
-}
-.product-menu ul {
-    list-style: none; 
-}
-
-.product-menu a {
-    text-decoration: none;
-    color: inherit; /* valfritt: gör så att länkarna använder samma färg som texten */
-}
-.product-menu a:hover {
-    color: #C58F7B;
-}
-.product-menu li {
-    margin: 1rem 0; /*1rem margin upp och ner, 0 till höger och vänster.*/
-}
-
-
-
-#open-btn {
   height: 50px;
   width: 50px;
   margin-left: auto;
   position: relative;
   cursor: pointer;
   display: flex;
+  flex-direction: column; /* stapla strecken */
+  justify-content: space-around; /* fördela mellanrum */
+  align-items: center;
 }
-#open-btn.hidden {
+.ham-btn.hidden {
   visibility: hidden;
 }
 
-.close-btn {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  font-size: 1.5rem;
-  margin-left: auto;
-}
-.close-btn:hover {
-  color: #c58f7b;
+.ham-btn span {
+  height: 5px;
+  width: 100%;
+  background-color: black;
+  border-radius: 25px;
+  transition: 0.3s ease;
 }
 
-.cart {
+.product-menu {
   background-color: #d8c5ae;
-  display: flex;
   height: 100vh;
   width: 100%;
   max-width: 450px;
   padding: 1rem;
   position: fixed;
   top: 0;
-  right: -450px;
+  left: -450px;
+  display: flex;
   flex-direction: column;
   align-items: flex-start;
   font-size: 2rem;
-  transition: 0.3s ease; /* Gör att sidan skjuts in */
+  transition: 0.3s ease; /* Gör att sidan skjuts in från vänster*/
+  /* z-index: 9999; */
+}
+
+.product-menu.active {
+  left: 0;
+}
+.product-menu p {
+  margin-bottom: 0;
+}
+.product-menu ul {
+  list-style: none;
+}
+
+.product-menu a {
+  text-decoration: none;
+  color: inherit; /* valfritt: gör så att länkarna använder samma färg som texten */
+}
+.product-menu a:hover {
+  color: #c58f7b;
+}
+.product-menu li {
+  margin: 1rem 0; /*1rem margin upp och ner, 0 till höger och vänster.*/
+}
+
+#open-btn {
+  font-size: 28px;
+  color: black;
+  padding: 10px;
+  background: none;
+  border: none;
+  outline: none;
+  margin-left: auto;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+}
+
+.close-btn,
+.close-menu {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  align-self: flex-end;
+}
+.close-btn:hover .close-menu:hover {
+  color: #c58f7b;
+}
+
+.cart {
+  background-color: #d8c5ae;
+  display: flex;
+  justify-content: space-between;
+  height: 100vh;
+  width: 300px;
+  max-width: 450px;
+  padding: 1rem;
+  position: fixed;
+  top: 0;
+  right: -300px;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 1.5rem;
+  transition: right 0.3s ease; /* Gör att sidan skjuts in */
+  z-index: 1000; /* ovanpå allt annat  */
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.3);
 }
 
 .cart.active {

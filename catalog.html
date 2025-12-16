@@ -1,119 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Katalog</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <header id="header">
-        <!-- Hamburger -->
-        <nav>
-            <div class="ham-btn">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-           </nav>
-    
-            <div class="product-menu">
-              <button class="close-btn">✕</button>
-              <p>Kategorier</p>
-              <ul>
-                <li><a href="catalog.html">Alla</a></li>
-                <li><a href="catalog.html?category=Halsband">Halsband</a></li>
-                <li><a href="catalog.html?category=Armband">Armband</a></li>
-                <li><a href="catalog.html?category=Ringar">Ringar</a></li>
-              </ul>
-            </div>
-    
-        <!-- Loggo -->
-        <h1 onclick="location.href='index.html'" style="cursor:pointer;">Logga</h1>
-    
-        <!-- Cart -->
-    <button id="open-btn">Varukorg</button>
+      <!-- Hamburger -->
+      <nav>
+        <div class="ham-btn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </nav>
 
-    <div class="cart">
-      <button class="close-btn">✕</button>
-      <h2>Din varukorg</h2>
-      <div id="cart-items"></div>
-    
-      <div class="total-row">
-        <span>Att betala</span>
-        <button class="total">Pris totalt</button>
+      <div class="product-menu">
+        <button class="close-menu">✕</button>
+        <p>Kategorier</p>
+        <ul>
+          <li><a href="catalog.html">Alla</a></li>
+          <li><a href="catalog.html?category=Halsband">Halsband</a></li>
+          <li><a href="catalog.html?category=Armband">Armband</a></li>
+          <li><a href="catalog.html?category=Ringar">Ringar</a></li>
+        </ul>
       </div>
-    </div>
+
+      <!-- Loggo -->
+      <h1 onclick="location.href='index.html'" style="cursor: pointer">
+        Logga
+      </h1>
+
+      <!-- Cart -->
+      <button id="open-btn">🛒 <span id="cart-count">0</span></button>
+
+      <div class="cart">
+        <button class="close-btn">✕</button>
+        <h2 id="title">Din varukorg</h2>
+
+        <ul id="cart-items">
+          <!--Items will be inserted by javaScript-->
+        </ul>
+
+        <div class="total-row">
+          <span>Att betala</span>
+          <button class="total">Pris totalt</button>
+        </div>
+      </div>
     </header>
 
-
-    
     <!-- Hamburger menu -->
     <div id="menu" class="menu hidden"></div>
 
     <section id="catalog">
-
-
-        <!-- <aside id="filters">
-            <h3>Filter/Sort by</h3>
-    
-            <label>
-                <input type="checkbox" class="filter-checkbox" value="Halsband">
-                Halsband
-            </label>
-    
-            <label>
-                <input type="checkbox" class="filter-checkbox" value="Armband">
-                Armband
-            </label>
-    
-            <label>
-                <input type="checkbox" class="filter-checkbox" value="Ringar">
-                Ringar
-            </label>
-    
-            <label>
-                <input type="checkbox" class="filter-checkbox" value="Örhängen">
-                Örhängen
-            </label>
-    
-        </aside> -->
-    
-        <div id="cards"></div>
-    
+      <div id="cards"></div>
     </section>
 
+    <footer>&copy;AB 2025</footer>
 
-
-
-
-
-<footer>&copy;AB 2025</footer>
-
-
-<!-- ====== MODAL PRODUCT ====== -->
-<div id="modal-product" class="modal">
-    <div class="modal-content">
+    <!-- ====== MODAL PRODUCT ====== -->
+    <div id="modal-product" class="modal">
+      <div class="modal-content">
         <span class="close" onclick="closeModal()">X</span>
-        <img id="modal-img">
+        <img id="modal-img" />
         <p id="modal-desc"></p>
         <p id="modal-price"></p>
-        <button onclick="addToCart()">Lägg till i varukorgen</button>
+        <button onclick="addProductFromModal()">Lägg till i varukorgen</button>
+      </div>
     </div>
-</div>
 
-<!-- ====== MODAL CART ====== -->
-<div id="modal-cart" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeCart()">✖</span>
-        <h2>Varukorg</h2>
-        <div id="cart-items"></div>
-    </div>
-</div>
-
-
-<!-- JS -->
-<script src="main.js"></script>
-
-</body>
+    <!-- JS -->
+    <script src="main.js"></script>
+  </body>
 </html>
