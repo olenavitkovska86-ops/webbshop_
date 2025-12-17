@@ -33,35 +33,111 @@ class Product {
 }
 
 const categories = [
-
   {
-      name: "Halsband",
-      products: [
-          new Product(1, "img/p01.jpg", "Guld Halsband", "199 kr", "Info", "Halsband"),
-          new Product(2, "img/p02.jpg", "Silver Halsband", "249 kr", "Info", "Halsband"),
-          new Product(3, "img/p03.jpg", "Silver Halsband", "249 kr", "Info", "Halsband"),
-          new Product(4, "img/p04.jpg", "Silver Halsband", "249 kr", "Info", "Halsband")
-      ]
+    name: "Halsband",
+    products: [
+      new Product(
+        1,
+        "img/p01.jpg",
+        "Guld Halsband",
+        "199 kr",
+        "Info",
+        "Halsband"
+      ),
+      new Product(
+        2,
+        "img/p02.jpg",
+        "Silver Halsband",
+        "249 kr",
+        "Info",
+        "Halsband"
+      ),
+      new Product(
+        3,
+        "img/p03.jpg",
+        "Silver Halsband",
+        "249 kr",
+        "Info",
+        "Halsband"
+      ),
+      new Product(
+        4,
+        "img/p04.jpg",
+        "Silver Halsband",
+        "249 kr",
+        "Info",
+        "Halsband"
+      ),
+    ],
   },
   {
-      name: "Armband",
-      products: [
-          new Product(5, "img/p05.jpg", "Guld Armband", "149 kr", "Info", "Armband"),
-          new Product(6, "img/p06.jpg", "Silver Armband", "179 kr", "Info", "Armband"),
-          new Product(7, "img/p07.jpg", "Silver Armband", "179 kr", "Info", "Armband"),
-          new Product(8, "img/p08.jpg", "Silver Armband", "179 kr", "Info", "Armband")
-      ]
+    name: "Armband",
+    products: [
+      new Product(
+        5,
+        "img/p05.jpg",
+        "Guld Armband",
+        "149 kr",
+        "Info",
+        "Armband"
+      ),
+      new Product(
+        6,
+        "img/p06.jpg",
+        "Silver Armband",
+        "179 kr",
+        "Info",
+        "Armband"
+      ),
+      new Product(
+        7,
+        "img/p07.jpg",
+        "Silver Armband",
+        "179 kr",
+        "Info",
+        "Armband"
+      ),
+      new Product(
+        8,
+        "img/p08.jpg",
+        "Silver Armband",
+        "179 kr",
+        "Info",
+        "Armband"
+      ),
+    ],
   },
   {
-      name: "Ringar",
-      products: [
-          new Product(9, "img/p09.jpg", "Ring Elegant", "299 kr", "Info", "Ringar"),
-          new Product(10, "img/p010.jpg", "Ring Minimalistisk", "199 kr", "Info", "Ringar"),
-          new Product(11, "img/p011.jpg", "Ring Elegant", "299 kr", "Info", "Ringar"),
-          new Product(12, "img/p012.jpg", "Ring Minimalistisk", "199 kr", "Info", "Ringar")
-      ]
+    name: "Ringar",
+    products: [
+      new Product(9, "img/p09.jpg", "Ring Elegant", "299 kr", "Info", "Ringar"),
+      new Product(
+        10,
+        "img/p010.jpg",
+        "Ring Minimalistisk",
+        "199 kr",
+        "Info",
+        "Ringar"
+      ),
+      new Product(
+        11,
+        "img/p011.jpg",
+        "Ring Elegant",
+        "299 kr",
+        "Info",
+        "Ringar"
+      ),
+      new Product(
+        12,
+        "img/p012.jpg",
+        "Ring Minimalistisk",
+        "199 kr",
+        "Info",
+        "Ringar"
+      ),
+    ],
   },
-]
+];
 
 // ===== RENDER OF CATEGORIES =====
 
@@ -180,6 +256,7 @@ function addToCart(product) {
     const countSpan = existingItem.querySelector(".count");
     countSpan.textContent = parseInt(countSpan.textContent) + 1;
     updateCartCount();
+    updateCartTotal();
     return;
   }
 
@@ -198,15 +275,18 @@ function addToCart(product) {
     countSpan.textContent = parseInt(countSpan.textContent) - 1;
     if (parseInt(countSpan.textContent) <= 0) li.remove();
     updateCartCount();
+    updateCartTotal();
   });
 
   li.querySelector(".plus").addEventListener("click", () => {
     countSpan.textContent = parseInt(countSpan.textContent) + 1;
     updateCartCount();
+    updateCartTotal();
   });
 
   itemList.appendChild(li);
   updateCartCount();
+  updateCartTotal();
 }
 
 // ==== on click open shoppingcart ====
@@ -221,4 +301,20 @@ if (closeBtn && openButton && shopCart) {
   closeBtn.addEventListener("click", () => {
     shopCart.classList.remove("active");
   });
+}
+
+//total-price
+function updateCartTotal() {
+  let total = 0;
+
+  itemList.querySelectorAll("li").forEach(li => {
+    const id = Number(li.dataset.id);
+    const count = Number(li.querySelector(".count").textContent);
+
+    const product = categories.flatMap(c => c.products).find(p => p.id === id);
+
+    total += parseInt(product.price) * count;
+  });
+
+  document.getElementById("cart-total").textContent = `Totalt: ${total} kr`;
 }

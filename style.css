@@ -146,14 +146,14 @@ nav {
 /* === Home page === */
 
 .hero-section {
-   width: 100%;
+  width: 100%;
   height: 50vh;
   max-height: 500px;
   overflow: hidden;
 }
 
 .hero-img {
-width: 100%;
+  width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center 45%;
@@ -168,10 +168,9 @@ width: 100%;
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(0,0,0,0) 70%,
-    rgba(0,0,0,0.15)
+    rgba(0, 0, 0, 0) 70%,
+    rgba(0, 0, 0, 0.15)
   );
-
 }
 
 .text {
@@ -181,38 +180,38 @@ width: 100%;
 
 /* Sofies circles */
 .circle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #e9d8c388;
-    border-radius: 50%;
-    width: 170px;
-    height: 170px;
-    cursor: pointer;
-    text-decoration: none;   /* tar bort underline */
-    font-size: 20px;
-    color: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e9d8c388;
+  border-radius: 50%;
+  width: 170px;
+  height: 170px;
+  cursor: pointer;
+  text-decoration: none; /* tar bort underline */
+  font-size: 20px;
+  color: inherit;
 }
 
-.circle:hover  {
-    background-color: #D8C5AE;
-    color: #fef4e9;
+.circle:hover {
+  background-color: #d8c5ae;
+  color: #fef4e9;
 }
 
 #circles {
-    display: flex;
-    justify-content: center;
-    gap: 2.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
 }
 
 #free-ship {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #e9d8c388;
-    border-radius: 100px;
-    width: 170px;
-    height: 170px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e9d8c388;
+  border-radius: 100px;
+  width: 170px;
+  height: 170px;
 }
 
 /* === Catalog page === */
@@ -317,7 +316,7 @@ width: 100%;
 /* Footer */
 
 footer {
-  background-color: #D6C2AE;
+  background-color: #d6c2ae;
   text-align: center;
   padding: 20px;
   margin-top: 30px;
