@@ -200,6 +200,7 @@ nav {
 
 #circles {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 2.5rem;
 }
@@ -400,3 +401,66 @@ footer {
   top: 20px;
   height: fit-content;
 }
+
+
+
+
+
+
+
+
+
+/* MOBILE (iPhone 12) */
+@media (max-width: 768px) {
+
+  /* HEADER */
+  header {
+    padding: 10px;
+  }
+
+  header h1 {
+    font-size: 18px;
+  }
+
+  /* cars */
+  #cards {
+    grid-template-columns: repeat(2, 1fr); /* 1 карточка в строке */
+    padding: 10px;
+  }
+
+  .card-box img {
+    height: 180px;
+  }
+
+  /* cart */
+  .cart {
+    width: 100%;
+    right: -100%;
+  }
+
+  .cart.active {
+    right: 0;
+  }
+
+  /* modal */
+  .modal-content {
+    width: 90%;
+    max-width: 350px;
+  }
+
+  .modal-content img {
+    height: 200px;
+  }
+
+  /* filters */
+  #filters {
+    display: none;
+  }
+
+  /* catalog*/
+  #catalog {
+    flex-direction: column;
+    padding: 10px;
+  }
+}
+
