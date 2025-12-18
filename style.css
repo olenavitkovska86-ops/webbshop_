@@ -17,9 +17,26 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgb(202, 145, 99);
+  
   padding: 10px 20px;
-  border-bottom: 2px solid lightgray;
+
+  background:
+  linear-gradient(
+    90deg,
+    rgba(255, 244, 242, 0.2) 0%,
+    rgba(236, 168, 153, 0.2) 30%,
+    rgba(255, 255, 255, 0.2) 45%,
+    rgba(217, 120, 95, 0.2) 65%,
+    rgba(255, 241, 236, 0.2) 100%
+  ),
+  #C58F7B;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 header h1 {
