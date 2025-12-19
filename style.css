@@ -17,17 +17,16 @@ body {
   width: 100%;
   padding: 10px 20px;
 
-  background:
-  linear-gradient(
-    90deg,
-    rgba(255, 244, 242, 0.2) 0%,
-    rgba(236, 168, 153, 0.2) 30%,
-    rgba(255, 255, 255, 0.2) 45%,
-    rgba(217, 120, 95, 0.2) 65%,
-    rgba(255, 241, 236, 0.2) 100%
-  ),
-  #C58F7B;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  background: linear-gradient(
+      90deg,
+      rgba(255, 244, 242, 0.2) 0%,
+      rgba(236, 168, 153, 0.2) 30%,
+      rgba(255, 255, 255, 0.2) 45%,
+      rgba(217, 120, 95, 0.2) 65%,
+      rgba(255, 241, 236, 0.2) 100%
+    ),
+    #c58f7b;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 
   position: sticky;
   top: 0;
@@ -44,7 +43,6 @@ header h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
 }
 
 nav {
@@ -141,27 +139,112 @@ nav {
   color: #c58f7b;
 }
 
-.cart {
-  background-color: #d8c5ae;
+.cart-header {
   display: flex;
   justify-content: space-between;
-  height: 100vh;
-  width: 300px;
-  max-width: 450px;
-  padding: 1rem;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.cart {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Totalt längst ner */
   position: fixed;
   top: 0;
-  right: -300px;
-  flex-direction: column;
-  align-items: flex-start;
-  font-size: 1.5rem;
-  transition: right 0.3s ease; /* Gör att sidan skjuts in */
-  z-index: 1000; /* ovanpå allt annat  */
-  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.3);
+  right: -350px;
+  width: 350px;
+  height: 100vh;
+  background: #fdf7f0;
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  z-index: 1000;
+  transition: right 0.3s ease;
 }
 
 .cart.active {
   right: 0;
+}
+
+.cart-img {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+#cart-items {
+  flex-grow: 1; /* fyller mitten */
+  overflow-y: auto;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#cart-items button {
+  border: none;
+  background: rgba(0, 0, 0, 0.08);
+  color: #000;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+#cart-items button:hover {
+  background: rgba(0, 0, 0, 0.15);
+  transform: scale(1.05);
+}
+
+#cart-items li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 8px;
+  margin-bottom: 4px;
+  background: transparent;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  transition: background 0.25s ease, transform 0.2s ease;
+}
+
+#cart-items li:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateX(-2px);
+}
+
+#cart-items span {
+  flex: 1; /* trycker knapparna åt höger */
+  font-size: 15px;
+}
+
+#cart-items .count {
+  min-width: 24px; /* ger plats så den inte hoppar */
+  text-align: center; /* centrerar siffran horisontellt */
+  font-weight: 500;
+}
+
+.clear-btn {
+  background-color: #c58f7b;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.clear-btn:hover {
+  background-color: #a86b54;
+}
+
+.total-row {
+  font-weight: 600;
+  font-size: 1.2rem;
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+  text-align: right;
 }
 
 /* === Home page === */
@@ -423,17 +506,8 @@ footer {
   height: fit-content;
 }
 
-
-
-
-
-
-
-
-
 /* MOBILE (iPhone 12) */
 @media (max-width: 768px) {
-
   /* HEADER */
   header {
     padding: 10px;
@@ -484,4 +558,3 @@ footer {
     padding: 10px;
   }
 }
-

@@ -318,3 +318,11 @@ function updateCartTotal() {
 
   document.getElementById("cart-total").textContent = `Totalt: ${total} kr`;
 }
+
+// Lyssnar efter klick om knappen finns
+document.querySelector("#clear-cart")?.addEventListener("click", () => {
+  itemList.innerHTML = ""; // tömmer alla varor i varukorgen
+  // uppdaterar antal och totalpris
+  updateCartCount();
+  updateCartTotal();
+});
