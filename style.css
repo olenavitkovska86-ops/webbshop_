@@ -13,11 +13,8 @@ body {
 
 /* === Header === */
 
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  
+.site-header {
+  width: 100%;
   padding: 10px 20px;
 
   background:
@@ -43,9 +40,11 @@ header h1 {
   cursor: pointer;
 }
 
-#head {
+.header-layout {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+
 }
 
 nav {
@@ -63,7 +62,7 @@ nav {
   justify-content: space-around; /* fördela mellanrum */
   align-items: center;
 }
-.ham-btn.hidden {
+.ham-btn.is-hidden {
   visibility: hidden;
 }
 
@@ -77,18 +76,23 @@ nav {
 
 .product-menu {
   background-color: #d8c5ae;
-  height: 100vh;
-  width: 100%;
-  max-width: 450px;
-  padding: 1rem;
+
   position: fixed;
   top: 0;
   left: -450px;
+
+  width: 450px;
+  max-width: 100vw;
+  height: 100vh;
+
+  padding: 1rem;
+
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   font-size: 2rem;
-  transition: 0.3s ease; /* Gör att sidan skjuts in från vänster*/
+
+  transition: left 0.3s ease;
   z-index: 1000;
 }
 

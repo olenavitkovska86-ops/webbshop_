@@ -5,7 +5,7 @@ const productMenu = document.querySelector(".product-menu");
 // Activate productmenu
 hamBtn.addEventListener("click", () => {
   productMenu.classList.toggle("active");
-  hamBtn.classList.add("hidden");
+  hamBtn.classList.add("is-hidden");
 });
 
 //Close-button
@@ -14,7 +14,7 @@ const closeMenu = document.querySelectorAll(".close-menu");
 closeMenu.forEach(btn => {
   btn.addEventListener("click", () => {
     productMenu.classList.remove("active");
-    hamBtn.classList.remove("hidden");
+    hamBtn.classList.remove("is-hidden");
 
     shopCart.classList.remove("active");
     openButton.classList.remove("hidden");

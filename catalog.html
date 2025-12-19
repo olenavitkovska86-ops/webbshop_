@@ -7,16 +7,31 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header id="header">
-      <!-- Hamburger -->
-      <nav>
-        <div class="ham-btn">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </nav>
+   
+    <header class="site-header">
 
+      <div class="header-layout">
+        <!-- Hamburger-button -->
+        <nav>
+          <div class="ham-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </nav>
+
+        <!-- Loggo -->
+        <h1 onclick="location.href='index.html'" style="cursor: pointer">
+          Logga
+        </h1>
+
+        <!-- Open-cart -->
+        <button id="open-btn">🛒<span id="cart-count">(0)</span></button>
+      </div>
+
+    </header>
+
+      <!-- Product Menu -->
       <div class="product-menu">
         <button class="close-menu">✕</button>
         <p>Kategorier</p>
@@ -28,14 +43,7 @@
         </ul>
       </div>
 
-      <!-- Loggo -->
-      <h1 onclick="location.href='index.html'" style="cursor: pointer">
-        Logga
-      </h1>
-
       <!-- Cart -->
-      <button id="open-btn">🛒 <span id="cart-count">0</span></button>
-
       <div class="cart">
         <button class="close-btn">✕</button>
         <h2 id="title">Din varukorg</h2>
@@ -49,10 +57,10 @@
           <p id="cart-total">Totalt: 0 kr</p>
         </div>
       </div>
-    </header>
+  
 
-    <!-- Hamburger menu -->
-    <div id="menu" class="menu hidden"></div>
+    <!-- Hamburger menu
+    <div id="menu" class="menu hidden"></div> -->
 
     <section id="catalog">
       <div id="cards"></div>
