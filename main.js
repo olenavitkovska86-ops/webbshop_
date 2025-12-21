@@ -263,7 +263,8 @@ function addToCart(product) {
   const li = document.createElement("li");
   li.dataset.id = product.id;
   li.innerHTML = `
-    <span>${product.name} </span>
+  <img class="cart-img" src="${product.img}" alt="${product.name}">
+    <span class="cart-name">${product.name}</span>
     <button class="minus">-</button>
     <span class="count">1</span>
     <button class="plus">+</button>
@@ -318,3 +319,11 @@ function updateCartTotal() {
 
   document.getElementById("cart-total").textContent = `Totalt: ${total} kr`;
 }
+
+// Lyssnar efter klick om knappen finns
+document.querySelector("#clear-cart")?.addEventListener("click", () => {
+  itemList.innerHTML = ""; // tömmer alla varor i varukorgen
+  // uppdaterar antal och totalpris
+  updateCartCount();
+  updateCartTotal();
+});
