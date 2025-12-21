@@ -1,12 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-layout">
+        <!-- Hamburger-button -->
+        <nav>
+          <div class="ham-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </nav>
+
+        <!-- Loggo -->
+        <h1 onclick="location.href='index.html'" style="cursor: pointer">
+          Logga
+        </h1>
+
+        <!-- Open-cart -->
+        <button id="open-btn">🛒<span id="cart-count">(0)</span></button>
+      </div>
+    </header>
+
+    <!-- Product Menu -->
+    <div class="product-menu">
+      <button class="close-menu">✕</button>
+      <p>Kategorier</p>
+      <ul>
+        <li><a href="catalog.html">Alla</a></li>
+        <li><a href="catalog.html?category=Halsband">Halsband</a></li>
+        <li><a href="catalog.html?category=Armband">Armband</a></li>
+        <li><a href="catalog.html?category=Ringar">Ringar</a></li>
+      </ul>
+    </div>
+
+    <!-- Cart -->
+
+    <div class="cart">
+      <button class="close-btn">✕</button>
+
+      <div class="cart-header">
+        <h2 id="title">Din varukorg</h2>
+        <button id="clear-cart" class="clear-btn">Töm varukorgen</button>
+      </div>
+
+      <ul id="cart-items">
+        <!--Items will be inserted by javaScript-->
+      </ul>
+
+      <div class="total-row">
+        <span>Att betala</span>
+        <p id="cart-total">Totalt: 0 kr</p>
+      </div>
+    </div>
+
+    <section id="home">
+      <section class="hero-section">
+        <img src="img/p00.jpg" alt="Pearls on display" class="hero-img" />
+      </section>
+
+      <p class="text">Välkommen!</p>
+
+      <div id="circles">
+        <a href="catalog.html?category=Halsband" class="circle">Halsband</a>
+        <a href="catalog.html?category=Armband" class="circle">Armband</a>
+        <a href="catalog.html?category=Ringar" class="circle">Ringar</a>
+        <a href="catalog.html" class="circle">Alla produkter</a>
+      </div>
+    </section>
+
+    <footer class="text">&copy;AB 2025</footer>
+    <script src="main.js"></script>
+  </body>
 </html>
