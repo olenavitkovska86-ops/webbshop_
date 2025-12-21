@@ -3,12 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <title>Home</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header class="site-header">
-
       <div class="header-layout">
         <!-- Hamburger-button -->
         <nav>
@@ -29,33 +28,36 @@
       </div>
     </header>
 
-      <!-- Product Menu -->
-      <div class="product-menu">
-        <button class="close-menu">✕</button>
-        <p>Kategorier</p>
-        <ul>
-          <li><a href="catalog.html">Alla</a></li>
-          <li><a href="catalog.html?category=Halsband">Halsband</a></li>
-          <li><a href="catalog.html?category=Armband">Armband</a></li>
-          <li><a href="catalog.html?category=Ringar">Ringar</a></li>
-        </ul>
-      </div>
+    <!-- Product Menu -->
+    <div class="product-menu">
+      <button class="close-menu">✕</button>
+      <p>Kategorier</p>
+      <ul>
+        <li><a href="catalog.html">Alla</a></li>
+        <li><a href="catalog.html?category=Halsband">Halsband</a></li>
+        <li><a href="catalog.html?category=Armband">Armband</a></li>
+        <li><a href="catalog.html?category=Ringar">Ringar</a></li>
+      </ul>
+    </div>
 
-      <!-- Cart -->
-      <div class="cart">
-        <button class="close-btn">✕</button>
+    <!-- Cart -->
+    <div class="cart">
+      <button class="close-btn">✕</button>
+
+      <div class="cart-header">
         <h2 id="title">Din varukorg</h2>
-
-        <ul id="cart-items">
-          <!--Items will be inserted by javaScript-->
-        </ul>
-
-        <div class="total-row">
-          <span>Att betala</span>
-          <p id="cart-total">Totalt: 0 kr</p>
-        </div>
+        <button id="clear-cart" class="clear-btn">Töm varukorgen</button>
       </div>
 
+      <ul id="cart-items">
+        <!--Items will be inserted by javaScript-->
+      </ul>
+
+      <div class="total-row">
+        <span>Att betala</span>
+        <p id="cart-total">Totalt: 0 kr</p>
+      </div>
+    </div>
 
     <section id="home">
       <section class="hero-section">
