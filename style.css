@@ -58,25 +58,32 @@ nav {
 }
 
 .ham-btn {
-  height: 50px;
-  width: 50px;
-  position: relative;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column; /* stapla strecken */
-  justify-content: space-around; /* fördela mellanrum */
-  align-items: center;
+    height: 44px;
+    width: 44px;
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 7px;
+
+    background: transparent;
+    border: none;
+    padding: 10px;
+
 }
 .ham-btn.is-hidden {
   visibility: hidden;
 }
 
 .ham-btn span {
-  height: 5px;
-  width: 100%;
-  background-color: black;
-  border-radius: 25px;
-  transition: 0.3s ease;
+  height: 2.5px;
+  width: 30px;
+
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 999px;
+
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 .product-menu {
@@ -287,9 +294,16 @@ nav {
   );
 }
 
-.text {
+.intro-text {
+  margin: 3rem auto 2.5rem;
+  max-width: 600px;
+
+  font-size: 1.15rem;
+  letter-spacing: 0.04em;
+  line-height: 1.6;
   text-align: center;
-  margin: 20px 0;
+
+  color: #4a4a4a
 }
 
 /* Sofies circles */
@@ -297,19 +311,29 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #e9d8c388;
+
   border-radius: 50%;
   width: 170px;
   height: 170px;
+
+  background-color: #e9d8c388;
+  color: #4a4a4a;
   cursor: pointer;
   text-decoration: none; /* tar bort underline */
+
   font-size: 20px;
-  color: inherit;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .circle:hover {
-  background-color: #d8c5ae;
-  color: #fef4e9;
+  background-color: #d3bfa8;
+  color: #ffffff;
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+
 }
 
 #circles {
@@ -319,15 +343,6 @@ nav {
   gap: 2.5rem;
 }
 
-#free-ship {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #e9d8c388;
-  border-radius: 100px;
-  width: 170px;
-  height: 170px;
-}
 
 /* === Catalog page === */
 
