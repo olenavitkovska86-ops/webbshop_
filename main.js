@@ -193,6 +193,8 @@ function openModal(img, desc, price, product) {
   document.getElementById("modal-img").src = img;
   document.getElementById("modal-desc").textContent = desc;
   document.getElementById("modal-price").textContent = price;
+  document.getElementById("modal-name").textContent = product.name;
+  document.getElementById("modal-details").textContent = product.category;
   document.getElementById("modal-product").style.display = "flex";
 }
 
