@@ -181,7 +181,7 @@ function cardHTML(product) {
 function addProductFromModal() {
   if (selectedProduct) {
     addToCart(selectedProduct);
-    closeModal();
+    // closeModal();
   }
 }
 
