@@ -6,9 +6,13 @@
   padding: 0;
 }
 
+/* Sätter global font och bakgrund. Gör body till en flex-kolumn med min-height: 100vh för att kunna trycka ner footern. */
 body {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   background: #fafafa;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 /* === Header === */
@@ -241,7 +245,7 @@ nav {
   font-weight: 500;
 }
 
-.clear-btn {
+.clear-btn, .modal-add{
   background-color: #c58f7b;
   color: #fff;
   border: none;
@@ -341,6 +345,7 @@ nav {
   flex-wrap: wrap;
   justify-content: center;
   gap: 2.5rem;
+  margin-bottom: 30px; 
 }
 
 
@@ -352,31 +357,27 @@ nav {
   padding: 20px;
 }
 
-#menu button {
+/* #menu button {
   padding: 8px 12px;
   cursor: pointer;
   background: #f3f3f3;
   border: 1px solid #aaa;
   border-radius: 4px;
-}
+} */
 
-#cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  padding: 20px;
-  gap: 20px;
-  /* background-color: #f4e6d7; */
-}
+
 
 /* === Product card === */
 
 .card-box {
   background: #fff;
-  /* border-radius: 12px; */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  padding: 10px;
+  padding: 12px;
   transition: 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 420px;
 }
 
 .card-box:hover {
@@ -386,50 +387,42 @@ nav {
 
 .card-box img {
   width: 100%;
-  height: 200px;
+  height: 280px;
   object-fit: contain;
+  margin-bottom: 12px;
 }
 
-.card-box h1 {
-  font-size: 22px;
-  margin-bottom: 10px;
+.card-box p{
+  margin: 0;
+  line-height: 1.3;
 }
 
-/* === Modal (general styles) === */
 
-.modal {
-  display: none; /* hidden by default */
+
+
+/* ===== MODAL overlay ===== */
+.modal{
+  display: none;             
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  inset: 0;
+  background: rgba(0,0,0,0.45);
   justify-content: center;
   align-items: center;
-  z-index: 100;
+  z-index: 1000;
+  padding: 24px;
 }
-
-.modal-content {
-  background: #fff;
-  padding: 20px;
-  /* border-radius: 12px; */
-  width: 300px;
-  text-align: center;
-  animation: popup 0.25s ease;
-}
-
-.modal-content img {
-  width: 100%;
-  height: 300px;
-  object-fit: contain;
-}
-
-.close {
-  float: right;
-  font-size: 20px;
+/* kryss (endast i modalen) */
+.modal-close{
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  font-size: 28px;
   cursor: pointer;
+  background: transparent;
+  border: none;
+  line-height: 1;
 }
+
 
 /* Animation */
 @keyframes popup {
@@ -443,77 +436,26 @@ nav {
   }
 }
 
-/* Footer */
-
-footer {
-  background-color: #d6c2ae;
-  text-align: center;
-  padding: 20px;
-  margin-top: 30px;
-}
-
 #hamburger {
   font-size: 28px;
   cursor: pointer;
   padding: 10px;
 }
 
-/* .menu {
-    position: absolute;
-    top: 60px;
-    left: 10px;
-    background: white;
-    border: 1px solid #ccc;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    border-radius: 6px;
-    padding: 10px;
-    z-index: 20;
-} */
 
 .hidden {
   display: none;
 }
 
-.menu button {
-  display: block;
-  width: 100%;
-  margin: 5px 0;
-  padding: 8px;
-  cursor: pointer;
-  background: #f3f3f3;
-  border: 1px solid #aaa;
-  border-radius: 4px;
-}
 
-#catalog {
-  display: flex;
-  gap: 20px;
-}
-
-#filters {
-  width: 200px;
-  padding: 10px;
-  border: 2px solid black;
-}
-
-#filters label {
-  display: block;
-  margin: 10px 0;
-  cursor: pointer;
-}
 
 /* Shared directory container */
 #catalog {
   display: flex;
   gap: 20px;
-  padding: 20px;
+  padding: 20px 140px;
 }
 
-/* Left column - filters */
-#filters {
-  width: 200px;
-  flex-shrink: 0;
-}
 
 /* Cards - stretch to fill the remaining space*/
 #cards {
@@ -521,64 +463,143 @@ footer {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
+  align-content: start; 
+  padding: 20px;
 }
 
-#filters {
-  width: 200px;
-  flex-shrink: 0;
-  position: sticky;
-  top: 20px;
-  height: fit-content;
+
+
+
+footer {
+  background-color: #d6c2ae;
+  text-align: center;
+  padding: 20px;
+  /* margin-top: 30px; */
+  margin-top: auto;
 }
 
-/* MOBILE (iPhone 12) */
-@media (max-width: 768px) {
+
+
+#modal-name{
+  margin: 0 0 8px;
+  font-size: 34px;
+  font-weight: 500;
+}
+
+#modal-price{
+  margin: 0 0 14px;
+  font-size: 20px;
+}
+
+
+.modal-info h3{
+  margin: 18px 0 8px;
+  font-size: 26px;
+  font-weight: 500;
+}
+
+/* modalens fönster*/
+.modal-content{
+  background: #fdf7f0;
+  width: min(820px, 92vw);
+  max-height: 90vh;
+  overflow: auto;
+  padding: 28px;
+  position: relative;
+  text-align: left;
+  animation: popup 0.25s ease;
+}
+
+/* två kolumner */
+.modal-body{
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+/* vänstra delen med bilden */
+.modal-media{
+  flex: 0 0 360px;      /* fast bredd på desktop */
+  max-width: 360px;
+  background: #fff;
+  padding: 14px;
+}
+
+/* bild*/
+.modal-media img{
+  display: block;
+  width: 100%;
+  height: 420px;        
+  object-fit: contain; 
+  
+}
+
+/* högra kolumnen */
+.modal-info{
+  flex: 1;
+  min-width: 0;
+}
+
+
+
+
+/* Skärmar upp till 768px  */
+@media (max-width: 768px){
+
+  /* MODAL */
+  .modal-content{
+    width: 92vw;
+    padding: 18px;
+  }
+
+  .modal-body{
+    flex-direction: column;  /* Vid mindre skärmbredd hamnar högra kolumnen under bilden */
+    gap: 16px;
+  }
+
+  .modal-media{
+    flex: 0 0 auto;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .modal-media img{
+    height: 280px;
+  }
+
   /* HEADER */
-  header {
+  header{
     padding: 10px;
   }
 
-  header h1 {
+  header h1{
     font-size: 18px;
   }
 
-  /* cars */
-  #cards {
-    grid-template-columns: repeat(2, 1fr); /* 1 карточка в строке */
+  /* CARDS */
+  #cards{
+    grid-template-columns: repeat(2, 1fr);
     padding: 10px;
   }
 
-  .card-box img {
-    height: 180px;
+  .card-box img{
+    width: 100%;
+    height: 280px;
+    margin-bottom: 12px;
   }
 
-  /* cart */
-  .cart {
+  /* CART */
+  .cart{
     width: 100%;
     right: -100%;
   }
 
-  .cart.active {
+  .cart.active{
     right: 0;
   }
 
-  /* modal */
-  .modal-content {
-    width: 90%;
-    max-width: 350px;
-  }
-
-  .modal-content img {
-    height: 200px;
-  }
-
-  /* filters */
-  #filters {
-    display: none;
-  }
-
-  /* catalog*/
-  #catalog {
+  /* CATALOG */
+  #catalog{
     flex-direction: column;
     padding: 10px;
   }
