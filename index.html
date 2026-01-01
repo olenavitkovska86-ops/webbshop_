@@ -6,10 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
+    <!-- ================= HEADER ================= -->
     <header class="site-header">
       <div class="header-layout">
-        <!-- Hamburger-button -->
+
+        <!-- Navigation with hamburger menu -->
         <nav>
           <div class="ham-btn">
             <span></span>
@@ -18,18 +21,19 @@
           </div>
         </nav>
 
-        <!-- Loggo -->
+        <!-- Logo / Home link -->
         <h1 class="logo">
           <a href="index.html">Logga</a>
         </h1>
 
 
-        <!-- Open-cart -->
+         <!-- Cart button that opens the shopping cart -->
         <button id="open-btn">🛒<span id="cart-count">(0)</span></button>
       </div>
     </header>
 
-    <!-- Product Menu -->
+    <!-- ================= CATEGORY MENU ================= -->
+    <!-- Hidden slide-in menu that shows product categories -->
     <div class="product-menu">
       <button class="close-menu">✕</button>
       <p>Kategorier</p>
@@ -41,12 +45,15 @@
       </ul>
     </div>
 
-    <!-- Cart -->
+    <!-- ================= SHOPPING CART ================= -->
+    <!-- Hidden cart that is opened with the cart button -->
     <div class="cart">
       <button class="close-btn">✕</button>
 
       <div class="cart-header">
         <h2 id="title">Din varukorg</h2>
+
+        <!-- Clears all items from the cart -->
         <button id="clear-cart" class="clear-btn">Töm varukorgen</button>
       </div>
 
@@ -54,28 +61,40 @@
         <!--Items will be inserted by javaScript-->
       </ul>
 
+      <!-- Displays the total price -->
       <div class="total-row">
         <span>Att betala</span>
         <p id="cart-total">Totalt: 0 kr</p>
       </div>
     </div>
 
+    <!-- ================= MAIN HOME CONTENT ================= -->
     <section id="home">
+
+      <!-- Hero image -->
       <section class="hero-section">
         <img src="img/p00.jpg" alt="Pearls on display" class="hero-img" />
       </section>
 
-      <p class="intro-text">Handgjorda smycken i tidlös design. <br> Skapade med omsorg, för livets alla ögonblick</p>
+      <!-- Intro text -->
+      <p class="intro-text">Handgjorda smycken i tidlös design. <br> 
+        Skapade med omsorg, för livets alla ögonblick
+      </p>
 
+      <!-- Category navigation circles -->
       <div id="circles">
         <a href="catalog.html?category=Halsband" class="circle">Halsband</a>
         <a href="catalog.html?category=Armband" class="circle">Armband</a>
         <a href="catalog.html?category=Ringar" class="circle">Ringar</a>
         <a href="catalog.html" class="circle">Alla produkter</a>
       </div>
+
     </section>
 
+    <!-- ================= FOOTER ================= -->
     <footer>&copy;AB 2025</footer>
+
+    <!-- Main JavaScript file -->
     <script src="main.js"></script>
   </body>
 </html>
