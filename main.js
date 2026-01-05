@@ -2,13 +2,13 @@
 const hamBtn = document.querySelector(".ham-btn");
 const productMenu = document.querySelector(".product-menu");
 
-// Activate productmenu
+// Open product menu
 hamBtn.addEventListener("click", () => {
   productMenu.classList.toggle("active");
   hamBtn.classList.add("is-hidden");
 });
 
-//Close-button
+// Close menu buttons
 const closeMenu = document.querySelectorAll(".close-menu");
 
 closeMenu.forEach(btn => {
@@ -21,6 +21,7 @@ closeMenu.forEach(btn => {
   });
 });
 
+// Product class (blueprint for products)
 class Product {
   constructor(id, img, name, price, desc, category) {
     this.id = id;
@@ -32,6 +33,7 @@ class Product {
   }
 }
 
+// All product categories with products
 const categories = [
   {
     name: "Halsband",
@@ -139,33 +141,36 @@ const categories = [
   },
 ];
 
-// ===== RENDER OF CATEGORIES =====
+// RENDER OF CATEGORIES
 
+// Render all products from all categories
 function renderAllCategories() {
   const container = document.getElementById("cards");
   container.innerHTML = "";
 
   categories.forEach(category => {
     category.products.forEach(product => {
-      container.innerHTML += cardHTML(product);
+      container.innerHTML += cardHTML(product); // Add product card
     });
   });
 }
 
+// Render products from one selected category
 function renderCategory(name) {
   const container = document.getElementById("cards");
   container.innerHTML = "";
 
-  const category = categories.find(c => c.name === name);
+  const category = categories.find(c => c.name === name); // Find category
   if (!category) return;
 
   category.products.forEach(product => {
-    container.innerHTML += cardHTML(product);
+    container.innerHTML += cardHTML(product); // Add product card
   });
 }
 
-let selectedProduct = null;
+let selectedProduct = null; // Variabel, Holds the currently selected product
 
+// Generate HTML for one product card
 function cardHTML(product) {
   return `
         <div class="card-box" onclick="
@@ -178,90 +183,88 @@ function cardHTML(product) {
     `;
 }
 
+// Add selected product to cart from modal
 function addProductFromModal() {
   if (selectedProduct) {
-    addToCart(selectedProduct);
+    addToCart(selectedProduct); // Add product to cart
     // closeModal();
   }
 }
 
-// ===== PRODUCT MODAL =====
+// PRODUCT MODAL
 
+// Open modal with product details
 function openModal(img, desc, price, product) {
-  selectedProduct = product; // spara produktobjektet
+  selectedProduct = product; // Save product object
 
   document.getElementById("modal-img").src = img;
   document.getElementById("modal-desc").textContent = desc;
   document.getElementById("modal-price").textContent = price;
   document.getElementById("modal-name").textContent = product.name;
   document.getElementById("modal-details").textContent = product.category;
-  document.getElementById("modal-product").style.display = "flex";
+  document.getElementById("modal-product").style.display = "flex"; // Show modal
 }
 
+// Close product modal
 function closeModal() {
-  document.getElementById("modal-product").style.display = "none";
+  document.getElementById("modal-product").style.display = "none"; // Hide modal
 }
 
 // On page load: shows all products or filters by selected category
 function initCatalog() {
-  // Find the container where product cards are rendered
-  const cards = document.getElementById("cards");
+  const cards = document.getElementById("cards"); // Product card container
+  if (!cards) return; // Stop if not on catalog page
 
-  // If the container does not exist, we are not on the catalog page
-  // Exit the function to avoid errors on other pages
-  if (!cards) return;
+  const params = new URLSearchParams(location.search); // Read URL parameters
+  const category = params.get("category"); // Get category from URL
 
-  // Read query parameters from the current URL
-  // Example: catalog.html?category=Ringar
-  const params = new URLSearchParams(location.search);
-
-  // Get the value of the "category" parameter from the URL
-  // Will be null if no category is specified
-  const category = params.get("category");
-
-  // If a category exists in the URL,
-  // render only products from that category
+  // If a category exists in the URL
   if (category) {
-    renderCategory(category);
-
-    // Otherwise, render all products in the catalog
+    renderCategory(category); // Show filtered products
   } else {
-    renderAllCategories();
+    renderAllCategories(); // Show all products
   }
 }
 
-// Run catalog initialization when the page loads
+// Run catalog when page loads
 initCatalog();
 
-// ==== cart ====
-// ==== Hämta alla html taggar vi behöver====
+// CART
 
+// Get all needed HTML elements
 const openButton = document.querySelector("#open-btn");
 const shopCart = document.querySelector(".cart");
 const closeBtn = document.querySelector(".close-btn");
 const itemList = document.querySelector("#cart-items");
 
+// Update cart count
 function updateCartCount() {
+  // Calculate total number of items in cart
   const totalCount = Array.from(itemList.children).reduce(
-    (sum, li) => sum + parseInt(li.querySelector(".count").textContent),
+    (sum, li) => sum + parseInt(li.querySelector(".count").textContent), // Get quantity
     0
   );
+  // Show cart count in header icon
   document.getElementById("cart-count").textContent = `(${totalCount})`;
 }
 
+// Add product to cart
 function addToCart(product) {
+  // Check if product already exists in cart
   let existingItem = Array.from(itemList.children).find(
-    li => li.dataset.id === product.id.toString()
+    li => li.dataset.id === product.id.toString() // Compare product id
   );
 
   if (existingItem) {
+    // If product already exists in cart ---> increase count
     const countSpan = existingItem.querySelector(".count");
-    countSpan.textContent = parseInt(countSpan.textContent) + 1;
+    countSpan.textContent = parseInt(countSpan.textContent) + 1; // Add 1 to quantity
     updateCartCount();
     updateCartTotal();
-    return;
+    return; // Stop
   }
 
+  // Product is not in cart --> create new list item for it
   const li = document.createElement("li");
   li.dataset.id = product.id;
   li.innerHTML = `
@@ -272,60 +275,65 @@ function addToCart(product) {
     <button class="plus">+</button>
   `;
 
-  const countSpan = li.querySelector(".count");
+  const countSpan = li.querySelector(".count"); // Update product quantity with plus or minus
 
+  // Event for decreasing item quantity
   li.querySelector(".minus").addEventListener("click", () => {
-    countSpan.textContent = parseInt(countSpan.textContent) - 1;
-    if (parseInt(countSpan.textContent) <= 0) li.remove();
+    countSpan.textContent = parseInt(countSpan.textContent) - 1; // Reduce by 1
+    if (parseInt(countSpan.textContent) <= 0) li.remove(); // Remove item if quantity <= 0
     updateCartCount();
     updateCartTotal();
   });
 
+  // Event for increasing item quantity
   li.querySelector(".plus").addEventListener("click", () => {
-    countSpan.textContent = parseInt(countSpan.textContent) + 1;
+    countSpan.textContent = parseInt(countSpan.textContent) + 1; // Increase by 1
     updateCartCount();
     updateCartTotal();
   });
 
+  // Add the new item to cart list
   itemList.appendChild(li);
   updateCartCount();
   updateCartTotal();
 }
 
-// ==== on click open shoppingcart ====
+// Open shopping cart
 if (openButton && shopCart) {
   openButton.addEventListener("click", () => {
-    shopCart.classList.toggle("active");
+    shopCart.classList.toggle("active"); // Show or hide cart
   });
 }
 
-// ==== on click hide shoppingcart ====
+// Close shopping cart
 if (closeBtn && openButton && shopCart) {
   closeBtn.addEventListener("click", () => {
-    shopCart.classList.remove("active");
+    shopCart.classList.remove("active"); // Hide cart
   });
 }
 
-//total-price
+// Calculate total price
 function updateCartTotal() {
   let total = 0;
 
+  // Loop through each cart item
   itemList.querySelectorAll("li").forEach(li => {
-    const id = Number(li.dataset.id);
-    const count = Number(li.querySelector(".count").textContent);
+    const id = Number(li.dataset.id); // Get product id
+    const count = Number(li.querySelector(".count").textContent); // Get quantity
 
+    // Find the product data from categories array
     const product = categories.flatMap(c => c.products).find(p => p.id === id);
 
-    total += parseInt(product.price) * count;
+    total += parseInt(product.price) * count; // Multiply price by quantity and add to total
   });
 
+  // Show total price in cart
   document.getElementById("cart-total").textContent = `Totalt: ${total} kr`;
 }
 
-// Lyssnar efter klick om knappen finns
+// Clear cart button
 document.querySelector("#clear-cart")?.addEventListener("click", () => {
-  itemList.innerHTML = ""; // tömmer alla varor i varukorgen
-  // uppdaterar antal och totalpris
-  updateCartCount();
-  updateCartTotal();
+  itemList.innerHTML = ""; // Remove all <li> items
+  updateCartCount(); // Reset to 0
+  updateCartTotal(); // Reset to 0
 });
