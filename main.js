@@ -42,7 +42,7 @@ const categories = [
         1,
         "img/p01.jpg",
         "Guld Halsband",
-        "199 kr",
+        "1799 kr",
         "Info",
         "Halsband"
       ),
@@ -50,7 +50,7 @@ const categories = [
         2,
         "img/p02.jpg",
         "Silver Halsband",
-        "249 kr",
+        "1249 kr",
         "Info",
         "Halsband"
       ),
@@ -58,7 +58,7 @@ const categories = [
         3,
         "img/p03.jpg",
         "Silver Halsband",
-        "249 kr",
+        "1249 kr",
         "Info",
         "Halsband"
       ),
@@ -66,7 +66,7 @@ const categories = [
         4,
         "img/p04.jpg",
         "Silver Halsband",
-        "249 kr",
+        "1499 kr",
         "Info",
         "Halsband"
       ),
@@ -79,7 +79,7 @@ const categories = [
         5,
         "img/p05.jpg",
         "Guld Armband",
-        "149 kr",
+        "1195 kr",
         "Info",
         "Armband"
       ),
@@ -87,7 +87,7 @@ const categories = [
         6,
         "img/p06.jpg",
         "Silver Armband",
-        "179 kr",
+        "1195kr",
         "Info",
         "Armband"
       ),
@@ -95,7 +95,7 @@ const categories = [
         7,
         "img/p07.jpg",
         "Silver Armband",
-        "179 kr",
+        "1099 kr",
         "Info",
         "Armband"
       ),
@@ -103,7 +103,7 @@ const categories = [
         8,
         "img/p08.jpg",
         "Silver Armband",
-        "179 kr",
+        "1299 kr",
         "Info",
         "Armband"
       ),
@@ -112,12 +112,19 @@ const categories = [
   {
     name: "Ringar",
     products: [
-      new Product(9, "img/p09.jpg", "Ring Elegant", "299 kr", "Info", "Ringar"),
+      new Product(
+        9,
+        "img/p09.jpg",
+        "Ring Elegant",
+        "1599 kr",
+        "Info",
+        "Ringar"
+      ),
       new Product(
         10,
         "img/p010.jpg",
         "Ring Minimalistisk",
-        "199 kr",
+        "1899 kr",
         "Info",
         "Ringar"
       ),
@@ -125,7 +132,7 @@ const categories = [
         11,
         "img/p011.jpg",
         "Ring Elegant",
-        "299 kr",
+        "1499 kr",
         "Info",
         "Ringar"
       ),
@@ -133,7 +140,7 @@ const categories = [
         12,
         "img/p012.jpg",
         "Ring Minimalistisk",
-        "199 kr",
+        "2099 kr",
         "Info",
         "Ringar"
       ),
@@ -241,7 +248,7 @@ const itemList = document.querySelector("#cart-items");
 function updateCartCount() {
   // Calculate total number of items in cart
   const totalCount = Array.from(itemList.children).reduce(
-    (sum, li) => sum + parseInt(li.querySelector(".count").textContent), // Get quantity
+    (sum, li) => sum + parseInt(li.querySelector(".count").textContent), // Get quantity of items
     0
   );
   // Show cart count in header icon
@@ -252,7 +259,7 @@ function updateCartCount() {
 function addToCart(product) {
   // Check if product already exists in cart
   let existingItem = Array.from(itemList.children).find(
-    li => li.dataset.id === product.id.toString() // Compare product id
+    li => li.dataset.id === product.id.toString() // Compare if cart item matches the product
   );
 
   if (existingItem) {
