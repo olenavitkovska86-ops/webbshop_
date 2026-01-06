@@ -22,6 +22,7 @@ This project focuses on frontend development and user interface, and therefore d
 -	HTML
 -	CSS
 -	JavaScript
+
 No frameworks or libraries (such as React) were used.
 
 
@@ -32,7 +33,7 @@ To run the webshop:
 1.	Download or clone the repository from GitHub
 2.	Open the `index.html` file in a web browser.
 
-Alternatively, the project can be run via GitHub Pages if it has been published there.
+Alternatively, the project can be run via GitHub Pages.
 
 
 ## Usage
@@ -47,10 +48,10 @@ The project consists of:
 -	`catalog.html` – product listing page
 -	CSS file for styling
 -	JavaScript file handling:
--	Product display
--	Navigation
--	Shopping cart logic
--	`/images` – image assets.
+  -	Product display
+  -	Navigation
+  -	Shopping cart logic
+-	`/img` – image assets.
 
 
 ## Limitations
@@ -62,7 +63,7 @@ The project consists of:
 ## Possible Improvements
 -	Save cart using localStorage.
 -	Refactor the code using classes (OOP).
--	Improve accessibility (ARIA, contrast, keyboard navigation).
+-	Improve accessibility (contrast, keyboard navigation).
 
 
 ## Team 
@@ -70,6 +71,7 @@ This project was developed by:
 -	Sofie
 -	Victoria
 -	Olena
+
 All team members contributed to the design, structure, and functionality of the webshop.
 
 
