@@ -450,6 +450,11 @@ nav {
   line-height: 1.3;
 }
 
+.card-box p:last-of-type {   /* price */
+  font-size: 16px;
+  font-weight: 600;
+}
+
 /* ===== MODAL overlay ===== */
 
 /* Modal background overlay */
@@ -539,6 +544,7 @@ footer {
 #modal-price {
   margin: 0 0 14px;
   font-size: 20px;
+  font-weight: 600;
 }
 
 /* Section headings in modal */
