@@ -44,7 +44,7 @@ const categories = [
         "Halsband Skimra",
         "1799 kr",
         "Ett elegant halsband där en droppformad pärla möter gnistrande kristaller. Den skimrande kedjan ger ett mjukt fall och gör smycket lika självklart till bröllop som till en uppklädd vardag.",
-        "Halsband"
+        "Material: Rhodiumpläterat sterlingsilver med exklusiva kristaller och sötvattenspärla"
       ),
       new Product(
         2,
@@ -52,7 +52,7 @@ const categories = [
         "Halsband Kontur",
         "1249 kr",
         "Ett hjärta med diskret kristallglitter och en pärla i centrum – romantiskt, men aldrig för mycket. Ett smycke du bär nära, och en present som alltid känns rätt.",
-        "Halsband"
+        "Material: 925 sterlingsilver med sötvattenspärla"
       ),
       new Product(
         3,
@@ -60,7 +60,7 @@ const categories = [
         "Halsband Dropp",
         "1249 kr",
         "En dekorativ medaljong som fångar ljuset med varje rörelse och ger direkt karaktär. Perfekt när du vill låta ett enda smycke sätta tonen för hela looken.",
-        "Halsband"
+        "Material: 925 sterlingsilver med droppformad kristall och små kristaller"
       ),
       new Product(
         4,
@@ -68,7 +68,7 @@ const categories = [
         "Halsband Stilren",
         "1499 kr",
         "Blomformad berlock i kristaller med ett mjukt ljusspel som känns både feminint och tidlöst. Lika fint till en enkel topp som till en klänning – och alltid lätt att bära.",
-        "Halsband"
+        "Material: 925 sterlingsilver med exklusiva kristaller"
       ),
     ],
   },
@@ -81,7 +81,7 @@ const categories = [
         "Armband Signatur",
         "1195 kr",
         "Ett nätt armband med vågformad linje och stenar som glittrar runt handleden. Bär det ensamt för en diskret touch – eller kombinera med fler armband för ett mer uppklätt uttryck.",
-        "Armband"
+        "Material: 925 sterlingsilver med små kulor och glittrande stenar"
       ),
       new Product(
         6,
@@ -89,7 +89,7 @@ const categories = [
         "Armband Harmoni",
         "1195kr",
         "Dubbel linje och en rad stenar som ger precis lagom lyster. Stilrent och modernt – ett armband som förhöjer utan att ta över.",
-        "Armband"
+        "Material: 925 sterlingsilver med klara kubiska zirkonior"
       ),
       new Product(
         7,
@@ -97,7 +97,7 @@ const categories = [
         "Armband Klassisk",
         "1099 kr",
         "En slät armring med en rak kristallrad för ett rent, elegant uttryck. Minimalistisk med exakt rätt sparkle – perfekt solo, och lika fin tillsammans med klocka.",
-        "Armband"
+        "Material: 925 sterlingsilver med klara stenar"
       ),
       new Product(
         8,
@@ -105,7 +105,7 @@ const categories = [
         "Armband Premium",
         "1299 kr",
         "Droppformade länkar som skapar en mjuk, följsam linje och reflekterar ljus vackert. Ett smycke som ser exklusivt ut, men känns lätt och bekvämt på handleden.",
-        "Armband"
+        "Material: Rodinerat 925 sterlingsilver med exklusiva kristaller"
       ),
     ],
   },
@@ -118,7 +118,7 @@ const categories = [
         "Ring Elegant",
         "1599 kr",
         "En tunn ring i varm ton med en ensam pärla som får tala för sig själv. Enkel, tidlös och så lätt att bära att du gärna låter den sitta kvar.",
-        "Ringar"
+        "Material: Guldpläterat 925 sterlingsilver med rund vit sötvattenspärla"
       ),
       new Product(
         10,
@@ -126,7 +126,7 @@ const categories = [
         "Ring Tidlös",
         "1899 kr",
         "En djupgrön sten i centrum, omgiven av klara stenar som ger extra skärpa och lyster. En elegant accent som lyfter både vardagslook och fest.",
-        "Ringar"
+        "Material: 925 sterlingsilver med grön kubisk zirkonia"
       ),
       new Product(
         11,
@@ -134,15 +134,15 @@ const categories = [
         "Ring Grace",
         "1499 kr",
         "Rosatonade stenar samlade i en mjuk blomform, inramade av diskret glitter. Feminint, balanserat och lätt att matcha – en fin färgklick på handen.",
-        "Ringar"
+        "Material: 925 sterlingsilver med rosa kubisk zirkonia"
       ),
       new Product(
         12,
         "img/p012.jpg",
         "Ring Aurora",
         "2099 kr",
-        "En blomformad ring gjord av Premiumtitan med gnistrande stenar formad med en luftig, öppen form. Den känns festlig utan att bli tung – ett statement som fortfarande är elegant.",
-        "Ringar"
+        "En blomformad ring gjord av Premiumtitan med gnistrande zirkonior, som reflekterar ljuset från alla vinklar. Ett exklusivt smycke som känns festlig utan att bli tung – ett statement som fortfarande är elegant.",
+        "Material: Premiumtitan (hypoallergen & nickelfri) med glittrande kubiska zirkonior"
       ),
     ],
   },
@@ -207,6 +207,7 @@ function openModal(img, desc, price, product) {
   document.getElementById("modal-desc").textContent = desc;
   document.getElementById("modal-price").textContent = price;
   document.getElementById("modal-name").textContent = product.name;
+  document.getElementById("modal-details").textContent = product.category;
   document.getElementById("modal-product").style.display = "flex"; // Show modal
 }
 
