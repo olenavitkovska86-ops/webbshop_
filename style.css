@@ -1,12 +1,14 @@
 /* === General styles === */
 
+/* Reset box model and remove default margin/padding */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* Sätter global font och bakgrund. Gör body till en flex-kolumn med min-height: 100vh för att kunna trycka ner footern. */
+/* Global font and background.
+   Uses flex column and min-height: 100vh so footer can stick to bottom */
 body {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   background: #fafafa;
@@ -21,6 +23,7 @@ body {
   width: 100%;
   padding: 10px 20px;
 
+  /* Soft gradient background */
   background: linear-gradient(
       90deg,
       rgba(255, 244, 242, 0.2) 0%,
@@ -30,66 +33,77 @@ body {
       rgba(255, 241, 236, 0.2) 100%
     ),
     #c58f7b;
+
+  /* Light shadow below header */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 
+  /* Sticky header that stays at the top*/
   position: sticky;
   top: 0;
   z-index: 10;
 
+  /* Smooth trasition when styles change */
   transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Logo link styling */
 .logo a {
-    color: rgba(255, 255, 255, 0.92);
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.08); /*ökar läsbarhet*/
-    text-decoration: none;
-    font-weight: 500; 
-    letter-spacing: 0.08em; 
-    text-transform: uppercase;
-    cursor: pointer;
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.08); /* Improves readability */
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
 }
 
-
+/* Layout for header content */
 .header-layout {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
+/* Navigation container */
 nav {
   padding: 0.5rem;
   display: inline-block;
 }
 
+/* Hamburger button */
 .ham-btn {
-    height: 44px;
-    width: 44px;
-    cursor: pointer;
+  height: 44px;
+  width: 44px;
+  cursor: pointer;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 7px;
+  /* Stack the lines vertically*/
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 7px;
 
-    background: transparent;
-    border: none;
-    padding: 10px;
-
+  background: transparent;
+  border: none;
+  padding: 10px;
 }
+
+/* Hide hamburger button */
 .ham-btn.is-hidden {
   visibility: hidden;
 }
 
+/* Hamburger lines */
 .ham-btn span {
   height: 2.5px;
   width: 30px;
-
   background-color: rgba(255, 255, 255, 0.85);
   border-radius: 999px;
 
+  /* Smooth animation when toggling */
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
+/* Slide-in product menu */
 .product-menu {
   background-color: #d8c5ae;
 
@@ -106,33 +120,45 @@ nav {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+
   font-size: 2rem;
 
   transition: left 0.3s ease;
   z-index: 1000;
 }
 
+/* Show product menu */
 .product-menu.active {
   left: 0;
 }
+
 .product-menu p {
   margin-bottom: 0;
 }
+
+/* Remove default list styling */
 .product-menu ul {
   list-style: none;
 }
 
+/* Menu links*/
 .product-menu a {
   text-decoration: none;
-  color: inherit; /* valfritt: gör så att länkarna använder samma färg som texten */
+  color: inherit; /* Use same color as text */
 }
+
+/* Hover effect on links */
 .product-menu a:hover {
   color: #c58f7b;
 }
+
 .product-menu li {
-  margin: 1rem 0; /*1rem margin upp och ner, 0 till höger och vänster.*/
+  margin: 1rem 0; /* Space between items */
 }
 
+/* === CART === */
+
+/* Open button (icon )*/
 #open-btn {
   font-size: 28px;
   color: black;
@@ -145,6 +171,7 @@ nav {
   display: flex;
 }
 
+/* Close buttons */
 .close-btn,
 .close-menu {
   background-color: transparent;
@@ -153,10 +180,13 @@ nav {
   font-size: 1.5rem;
   align-self: flex-end;
 }
+
+/* Hover effect for close buttons */
 .close-btn:hover .close-menu:hover {
   color: #c58f7b;
 }
 
+/* Cart header layout */
 .cart-header {
   display: flex;
   justify-content: space-between;
@@ -164,26 +194,32 @@ nav {
   margin-bottom: 20px;
 }
 
+/* Shopping cart sidebar */
 .cart {
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Totalt längst ner */
+  justify-content: space-between; /* Push total to bottom */
+
   position: fixed;
   top: 0;
-  right: -350px;
+  right: -350px; /* Hidden off-screen */
+
   width: 350px;
   height: 100vh;
   background: #fdf7f0;
   box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);
   padding: 20px;
+
   z-index: 1000;
   transition: right 0.3s ease;
 }
 
+/* Show cart */
 .cart.active {
   right: 0;
 }
 
+/* Product image in cart */
 .cart-img {
   width: 72px;
   height: 72px;
@@ -192,6 +228,7 @@ nav {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
+/* Cart items list */
 #cart-items {
   flex-grow: 1; /* fyller mitten */
   overflow-y: auto;
@@ -200,6 +237,7 @@ nav {
   margin: 0;
 }
 
+/* Buttons inside cart */
 #cart-items button {
   border: none;
   background: rgba(0, 0, 0, 0.08);
@@ -210,11 +248,13 @@ nav {
   transition: background 0.2s ease, transform 0.1s ease;
 }
 
+/* Hover effect on cart buttons */
 #cart-items button:hover {
   background: rgba(0, 0, 0, 0.15);
   transform: scale(1.05);
 }
 
+/* Individual cart item */
 #cart-items li {
   display: flex;
   align-items: center;
@@ -229,23 +269,28 @@ nav {
   transition: background 0.25s ease, transform 0.2s ease;
 }
 
+/* Hover effect on cart item */
 #cart-items li:hover {
   background: rgba(255, 255, 255, 0.25);
   transform: translateX(-2px);
 }
 
+/* Product text in cart */
 #cart-items span {
-  flex: 1; /* trycker knapparna åt höger */
+  flex: 1; /* Push buttons to the right */
   font-size: 15px;
 }
 
+/* Quantity counter */
 #cart-items .count {
-  min-width: 24px; /* ger plats så den inte hoppar */
-  text-align: center; /* centrerar siffran horisontellt */
+  min-width: 24px; /* Prevent layout jump */
+  text-align: center;
   font-weight: 500;
 }
 
-.clear-btn, .modal-add{
+/* Primary buttons */
+.clear-btn,
+.modal-add {
   background-color: #c58f7b;
   color: #fff;
   border: none;
@@ -256,10 +301,12 @@ nav {
   transition: 0.2s ease;
 }
 
+/* Hover effect on clear button */
 .clear-btn:hover {
   background-color: #a86b54;
 }
 
+/* Total price row */
 .total-row {
   font-weight: 600;
   font-size: 1.2rem;
@@ -270,23 +317,28 @@ nav {
 
 /* === Home page === */
 
+/* Hero section container */
 .hero-section {
   width: 100%;
   height: 50vh;
   max-height: 500px;
-  overflow: hidden;
+  overflow: hidden; /* Hide parts of image that overflow */
 }
 
+/* Hero image styling */
 .hero-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center 45%;
+  object-fit: cover; /* Fill container without distortion */
+  object-position: center 45%; /* Adjust vertical focus*/
 }
+
+/* Needed for overlay positioning */
 .hero-section {
   position: relative;
 }
 
+/* Dark gradient overlay on hero image */
 .hero-section::after {
   content: "";
   position: absolute;
@@ -298,6 +350,7 @@ nav {
   );
 }
 
+/* Intro text under hero section */
 .intro-text {
   margin: 3rem auto 2.5rem;
   max-width: 600px;
@@ -307,112 +360,114 @@ nav {
   line-height: 1.6;
   text-align: center;
 
-  color: #4a4a4a
+  color: #4a4a4a;
 }
 
-/* Sofies circles */
+/* Sofies Circular navigation links */
 .circle {
   display: flex;
   justify-content: center;
   align-items: center;
 
-  border-radius: 50%;
+  border-radius: 50%; /* Makes the element a circle */
   width: 170px;
   height: 170px;
 
   background-color: #e9d8c388;
   color: #4a4a4a;
   cursor: pointer;
-  text-decoration: none; /* tar bort underline */
+  text-decoration: none; /* Remove underline from links */
 
   font-size: 20px;
   font-weight: 500;
   letter-spacing: 0.05em;
 
+  /* Smooth hover animation*/
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
+/* Hover effect for circles */
 .circle:hover {
   background-color: #d3bfa8;
   color: #ffffff;
   transform: translateY(-4px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
+/* Container for all circles */
 #circles {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 2.5rem;
-  margin-bottom: 30px; 
+  margin-bottom: 30px;
 }
-
 
 /* === Catalog page === */
 
+/* Menu/filter container */
 #menu {
   display: flex;
   gap: 10px;
   padding: 20px;
 }
 
-/* #menu button {
-  padding: 8px 12px;
-  cursor: pointer;
-  background: #f3f3f3;
-  border: 1px solid #aaa;
-  border-radius: 4px;
-} */
-
-
-
 /* === Product card === */
 
+/* Product card layout */
 .card-box {
   background: #fff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   padding: 12px;
+
+  /* Smooth hover animation */
   transition: 0.3s ease;
+
   display: flex;
   flex-direction: column;
   height: 420px;
 }
 
+/* Hover effect for product card */
 .card-box:hover {
   transform: translateY(-5px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
+/* Product image inside card */
 .card-box img {
   width: 100%;
   height: 280px;
-  object-fit: contain;
+  object-fit: contain; /* Show full product image */
   margin-bottom: 12px;
 }
 
-.card-box p{
+/* Product text inside card */
+.card-box p {
   margin: 0;
   line-height: 1.3;
 }
 
-
-
-
 /* ===== MODAL overlay ===== */
-.modal{
-  display: none;             
+
+/* Modal background overlay */
+.modal {
+  display: none; /* Hidden by default */
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.45);
+  background: rgba(0, 0, 0, 0.45);
+
+  /* Center modal content */
   justify-content: center;
   align-items: center;
+
   z-index: 1000;
   padding: 24px;
 }
-/* kryss (endast i modalen) */
-.modal-close{
+
+/* Close button inside modal */
+.modal-close {
   position: absolute;
   top: 14px;
   right: 18px;
@@ -423,8 +478,7 @@ nav {
   line-height: 1;
 }
 
-
-/* Animation */
+/* Popup animation */
 @keyframes popup {
   from {
     transform: scale(0.5);
@@ -436,70 +490,65 @@ nav {
   }
 }
 
+/* Hamburger icon */
 #hamburger {
   font-size: 28px;
   cursor: pointer;
   padding: 10px;
 }
 
-
+/* Utility class to hide elements */
 .hidden {
   display: none;
 }
 
-
-
-/* Shared directory container */
+/* Shared catalog layout */
 #catalog {
   display: flex;
   gap: 20px;
   padding: 20px 140px;
 }
 
-
-/* Cards - stretch to fill the remaining space*/
+/* Product cards grid */
 #cards {
-  flex-grow: 1;
+  flex-grow: 1; /* Take remaining space */
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
-  align-content: start; 
+  align-content: start;
   padding: 20px;
 }
 
-
-
-
+/* Footer styling */
 footer {
   background-color: #d6c2ae;
   text-align: center;
   padding: 20px;
-  /* margin-top: 30px; */
-  margin-top: auto;
+  margin-top: auto; /* Push footer to bottom */
 }
 
-
-
-#modal-name{
+/* Modal product name */
+#modal-name {
   margin: 0 0 8px;
   font-size: 34px;
   font-weight: 500;
 }
 
-#modal-price{
+/* Modal product price */
+#modal-price {
   margin: 0 0 14px;
   font-size: 20px;
 }
 
-
-.modal-info h3{
+/* Section headings in modal */
+.modal-info h3 {
   margin: 18px 0 8px;
   font-size: 26px;
   font-weight: 500;
 }
 
-/* modalens fönster*/
-.modal-content{
+/* Modal window */
+.modal-content {
   background: #fdf7f0;
   width: min(820px, 92vw);
   max-height: 90vh;
@@ -507,99 +556,96 @@ footer {
   padding: 28px;
   position: relative;
   text-align: left;
+
+  /* Entrance animation */
   animation: popup 0.25s ease;
 }
 
-/* två kolumner */
-.modal-body{
+/* Two-column layout inside modal */
+.modal-body {
   display: flex;
   gap: 32px;
   align-items: flex-start;
 }
 
-/* vänstra delen med bilden */
-.modal-media{
-  flex: 0 0 360px;      /* fast bredd på desktop */
+/* Left column with image */
+.modal-media {
+  flex: 0 0 360px; /* Fixed width on desktop */
   max-width: 360px;
   background: #fff;
   padding: 14px;
 }
 
-/* bild*/
-.modal-media img{
+/* Modal product image */
+.modal-media img {
   display: block;
   width: 100%;
-  height: 420px;        
-  object-fit: contain; 
-  
+  height: 420px;
+  object-fit: contain;
 }
 
-/* högra kolumnen */
-.modal-info{
+/* Right column with product info */
+.modal-info {
   flex: 1;
   min-width: 0;
 }
 
-
-
-
-/* Skärmar upp till 768px  */
-@media (max-width: 768px){
-
+/* === Responsive styles (up to 768px) === */
+@media (max-width: 768px) {
   /* MODAL */
-  .modal-content{
+  .modal-content {
     width: 92vw;
     padding: 18px;
   }
 
-  .modal-body{
-    flex-direction: column;  /* Vid mindre skärmbredd hamnar högra kolumnen under bilden */
+  .modal-body {
+    flex-direction: column; /* Stack columns vertically */
     gap: 16px;
   }
 
-  .modal-media{
+  .modal-media {
     flex: 0 0 auto;
     max-width: 100%;
     width: 100%;
   }
 
-  .modal-media img{
+  .modal-media img {
     height: 280px;
   }
 
   /* HEADER */
-  header{
+  header {
     padding: 10px;
   }
 
-  header h1{
+  header h1 {
     font-size: 18px;
   }
 
   /* CARDS */
-  #cards{
+  #cards {
     grid-template-columns: repeat(2, 1fr);
     padding: 10px;
   }
 
-  .card-box img{
+  .card-box img {
     width: 100%;
     height: 280px;
     margin-bottom: 12px;
   }
 
   /* CART */
-  .cart{
+  .cart {
     width: 100%;
     right: -100%;
   }
 
-  .cart.active{
+  .cart.active {
     right: 0;
   }
 
   /* CATALOG */
-  #catalog{
+  #catalog {
     flex-direction: column;
     padding: 10px;
   }
