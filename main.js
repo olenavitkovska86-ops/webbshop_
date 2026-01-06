@@ -41,33 +41,33 @@ const categories = [
       new Product(
         1,
         "img/p01.jpg",
-        "Guld Halsband",
+        "Halsband Skimra",
         "1799 kr",
-        "Info",
+        "Ett elegant halsband där en droppformad pärla möter gnistrande kristaller. Den skimrande kedjan ger ett mjukt fall och gör smycket lika självklart till bröllop som till en uppklädd vardag.",
         "Halsband"
       ),
       new Product(
         2,
         "img/p02.jpg",
-        "Silver Halsband",
+        "Halsband Kontur",
         "1249 kr",
-        "Info",
+        "Ett hjärta med diskret kristallglitter och en pärla i centrum – romantiskt, men aldrig för mycket. Ett smycke du bär nära, och en present som alltid känns rätt.",
         "Halsband"
       ),
       new Product(
         3,
         "img/p03.jpg",
-        "Silver Halsband",
+        "Halsband Dropp",
         "1249 kr",
-        "Info",
+        "En dekorativ medaljong som fångar ljuset med varje rörelse och ger direkt karaktär. Perfekt när du vill låta ett enda smycke sätta tonen för hela looken.",
         "Halsband"
       ),
       new Product(
         4,
         "img/p04.jpg",
-        "Silver Halsband",
+        "Halsband Stilren",
         "1499 kr",
-        "Info",
+        "Blomformad berlock i kristaller med ett mjukt ljusspel som känns både feminint och tidlöst. Lika fint till en enkel topp som till en klänning – och alltid lätt att bära.",
         "Halsband"
       ),
     ],
@@ -78,33 +78,33 @@ const categories = [
       new Product(
         5,
         "img/p05.jpg",
-        "Guld Armband",
+        "Armband Signatur",
         "1195 kr",
-        "Info",
+        "Ett nätt armband med vågformad linje och stenar som glittrar runt handleden. Bär det ensamt för en diskret touch – eller kombinera med fler armband för ett mer uppklätt uttryck.",
         "Armband"
       ),
       new Product(
         6,
         "img/p06.jpg",
-        "Silver Armband",
+        "Armband Harmoni",
         "1195kr",
-        "Info",
+        "Dubbel linje och en rad stenar som ger precis lagom lyster. Stilrent och modernt – ett armband som förhöjer utan att ta över.",
         "Armband"
       ),
       new Product(
         7,
         "img/p07.jpg",
-        "Silver Armband",
+        "Armband Klassisk",
         "1099 kr",
-        "Info",
+        "En slät armring med en rak kristallrad för ett rent, elegant uttryck. Minimalistisk med exakt rätt sparkle – perfekt solo, och lika fin tillsammans med klocka.",
         "Armband"
       ),
       new Product(
         8,
         "img/p08.jpg",
-        "Silver Armband",
+        "Armband Premium",
         "1299 kr",
-        "Info",
+        "Droppformade länkar som skapar en mjuk, följsam linje och reflekterar ljus vackert. Ett smycke som ser exklusivt ut, men känns lätt och bekvämt på handleden.",
         "Armband"
       ),
     ],
@@ -117,31 +117,31 @@ const categories = [
         "img/p09.jpg",
         "Ring Elegant",
         "1599 kr",
-        "Info",
+        "En tunn ring i varm ton med en ensam pärla som får tala för sig själv. Enkel, tidlös och så lätt att bära att du gärna låter den sitta kvar.",
         "Ringar"
       ),
       new Product(
         10,
         "img/p010.jpg",
-        "Ring Minimalistisk",
+        "Ring Tidlös",
         "1899 kr",
-        "Info",
+        "En djupgrön sten i centrum, omgiven av klara stenar som ger extra skärpa och lyster. En elegant accent som lyfter både vardagslook och fest.",
         "Ringar"
       ),
       new Product(
         11,
         "img/p011.jpg",
-        "Ring Elegant",
+        "Ring Grace",
         "1499 kr",
-        "Info",
+        "Rosatonade stenar samlade i en mjuk blomform, inramade av diskret glitter. Feminint, balanserat och lätt att matcha – en fin färgklick på handen.",
         "Ringar"
       ),
       new Product(
         12,
         "img/p012.jpg",
-        "Ring Minimalistisk",
+        "Ring Aurora",
         "2099 kr",
-        "Info",
+        "En blomformad ring gjord av Premiumtitan med gnistrande stenar formad med en luftig, öppen form. Den känns festlig utan att bli tung – ett statement som fortfarande är elegant.",
         "Ringar"
       ),
     ],
