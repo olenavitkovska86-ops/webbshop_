@@ -11,7 +11,6 @@
     <!-- ================= HEADER ================= -->
     <header class="site-header">
       <div class="header-layout">
-
         <!-- Navigation with hamburger menu -->
         <nav>
           <div class="ham-btn">
@@ -73,34 +72,37 @@
       <div id="cards"></div>
     </section>
 
-
     <!-- ================= PRODUCT MODAL ================= -->
     <!-- Popup that shows detailed product information -->
     <div id="modal-product" class="modal">
       <div class="modal-content">
-
         <!-- Button to close the modal -->
-        <button class="modal-close" type="button" onclick="closeModal()">✕</button>
-    
+        <button class="modal-close" type="button" onclick="closeModal()">
+          ✕
+        </button>
+
         <div class="modal-body">
           <!-- Product image -->
           <div class="modal-media">
-            <img id="modal-img" alt="">
+            <img id="modal-img" alt="" />
           </div>
 
           <!-- Product text information -->
           <div class="modal-info">
             <h2 id="modal-name"></h2>
             <p id="modal-price"></p>
-    
+
             <!-- Adds the selected product to the cart -->
-            <button class="modal-add" type="button" onclick="addProductFromModal()">
+            <button
+              class="modal-add"
+              type="button"
+              onclick="addProductFromModal()"
+            >
               Lägg till i varukorgen
             </button>
-    
-            <h3>Detaljer</h3>
+
             <p id="modal-details"></p>
-    
+
             <h3>Beskrivning</h3>
             <p id="modal-desc"></p>
           </div>
@@ -110,7 +112,6 @@
 
     <!-- ================= FOOTER ================= -->
     <footer>&copy; VIRELLE AB 2026</footer>
-
 
     <!-- Main JavaScript file -->
     <script src="main.js"></script>
