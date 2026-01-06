@@ -452,7 +452,7 @@ nav {
 
 .card-box p:last-of-type {   /* price */
   font-size: 16px;
-  font-weight: 600;
+
 }
 
 /* ===== MODAL overlay ===== */
@@ -471,6 +471,7 @@ nav {
   z-index: 1000;
   padding: 24px;
 }
+
 
 /* Close button inside modal */
 .modal-close {
@@ -544,12 +545,12 @@ footer {
 #modal-price {
   margin: 0 0 14px;
   font-size: 20px;
-  font-weight: 600;
+  /* font-weight: 600; */
 }
 
 /* Section headings in modal */
 .modal-info h3 {
-  margin: 18px 0 8px;
+  margin: 18px 0 3px;
   font-size: 26px;
   font-weight: 500;
 }
