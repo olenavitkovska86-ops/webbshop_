@@ -183,9 +183,13 @@ function cardHTML(product) {
         <div class="card-box" onclick="
             openModal('${product.img}', '${product.desc}', '${product.price}', categories.flatMap(c => c.products).find(p => p.id === ${product.id}))
         ">
+        <div>
             <img src="${product.img}">
+        </div class="modal-media">
+        <div class="modal-info">
             <p>${product.name}</p>
             <p>${product.price}</p>
+        </div>
         </div>
     `;
 }

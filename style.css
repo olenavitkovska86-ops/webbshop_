@@ -427,6 +427,7 @@ nav {
   display: flex;
   flex-direction: column;
   height: 420px;
+
 }
 
 /* Hover effect for product card */
@@ -573,7 +574,7 @@ footer {
   flex: 0 0 360px; /* Fixed width on desktop */
   max-width: 360px;
   background: #fff;
-  padding: 14px;
+  padding: 18px;
 }
 
 /* Modal product image */
@@ -588,6 +589,8 @@ footer {
 .modal-info {
   flex: 1;
   min-width: 0;
+  padding: 16px;
+  line-height: 1.4;
 }
 
 /* === Responsive styles (up to 768px) === */
